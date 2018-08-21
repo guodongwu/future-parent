@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/future-dao/futrue-dao.iml" filepath="$PROJECT_DIR$/future-dao/futrue-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/future-model/futrue-model.iml" filepath="$PROJECT_DIR$/future-model/futrue-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/future-service/futrue-service.iml" filepath="$PROJECT_DIR$/future-service/futrue-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/future-backend-web/future-backend-web.iml" filepath="$PROJECT_DIR$/future-backend-web/future-backend-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/future-dao/future-dao.iml" filepath="$PROJECT_DIR$/future-dao/future-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/future-model/future-model.iml" filepath="$PROJECT_DIR$/future-model/future-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/future-parent.iml" filepath="$PROJECT_DIR$/future-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/future-service/future-service.iml" filepath="$PROJECT_DIR$/future-service/future-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/future-service-api/future-service-api.iml" filepath="$PROJECT_DIR$/future-service-api/future-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/future-utils/future-utils.iml" filepath="$PROJECT_DIR$/future-utils/future-utils.iml" />
+    </modules>
+  </component>
+</project>

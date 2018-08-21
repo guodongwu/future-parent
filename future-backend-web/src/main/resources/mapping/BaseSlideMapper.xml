@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.future.mapper.BaseSlideMapper">
+  <resultMap id="BaseResultMap" type="com.future.pojo.BaseSlide">
+    <id column="slide_id" jdbcType="INTEGER" property="slideId" />
+    <result column="Type" jdbcType="VARCHAR" property="type" />
+    <result column="Title" jdbcType="VARCHAR" property="title" />
+    <result column="Descn" jdbcType="VARCHAR" property="descn" />
+    <result column="Litpic" jdbcType="VARCHAR" property="litpic" />
+    <result column="Body" jdbcType="VARCHAR" property="body" />
+    <result column="sort_order" jdbcType="INTEGER" property="sortOrder" />
+    <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="add_ip" jdbcType="VARCHAR" property="addIp" />
+    <result column="Status" jdbcType="TINYINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    slide_id, Type, Title, Descn, Litpic, Body, sort_order, add_time, add_ip, Status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from base_slide
+    where slide_id = #{slideId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from base_slide
+    where slide_id = #{slideId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.future.pojo.BaseSlide">
+    insert into base_slide (slide_id, Type, Title, 
+      Descn, Litpic, Body, 
+      sort_order, add_time, add_ip, 
+      Status)
+    values (#{slideId,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{descn,jdbcType=VARCHAR}, #{litpic,jdbcType=VARCHAR}, #{body,jdbcType=VARCHAR}, 
+      #{sortOrder,jdbcType=INTEGER}, #{addTime,jdbcType=TIMESTAMP}, #{addIp,jdbcType=VARCHAR}, 
+      #{status,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.future.pojo.BaseSlide">
+    insert into base_slide
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="slideId != null">
+        slide_id,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="title != null">
+        Title,
+      </if>
+      <if test="descn != null">
+        Descn,
+      </if>
+      <if test="litpic != null">
+        Litpic,
+      </if>
+      <if test="body != null">
+        Body,
+      </if>
+      <if test="sortOrder != null">
+        sort_order,
+      </if>
+      <if test="addTime != null">
+        add_time,
+      </if>
+      <if test="addIp != null">
+        add_ip,
+      </if>
+      <if test="status != null">
+        Status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="slideId != null">
+        #{slideId,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="descn != null">
+        #{descn,jdbcType=VARCHAR},
+      </if>
+      <if test="litpic != null">
+        #{litpic,jdbcType=VARCHAR},
+      </if>
+      <if test="body != null">
+        #{body,jdbcType=VARCHAR},
+      </if>
+      <if test="sortOrder != null">
+        #{sortOrder,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addIp != null">
+        #{addIp,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.future.pojo.BaseSlide">
+    update base_slide
+    <set>
+      <if test="type != null">
+        Type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        Title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="descn != null">
+        Descn = #{descn,jdbcType=VARCHAR},
+      </if>
+      <if test="litpic != null">
+        Litpic = #{litpic,jdbcType=VARCHAR},
+      </if>
+      <if test="body != null">
+        Body = #{body,jdbcType=VARCHAR},
+      </if>
+      <if test="sortOrder != null">
+        sort_order = #{sortOrder,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null">
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addIp != null">
+        add_ip = #{addIp,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        Status = #{status,jdbcType=TINYINT},
+      </if>
+    </set>
+    where slide_id = #{slideId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.future.pojo.BaseSlide">
+    update base_slide
+    set Type = #{type,jdbcType=VARCHAR},
+      Title = #{title,jdbcType=VARCHAR},
+      Descn = #{descn,jdbcType=VARCHAR},
+      Litpic = #{litpic,jdbcType=VARCHAR},
+      Body = #{body,jdbcType=VARCHAR},
+      sort_order = #{sortOrder,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      add_ip = #{addIp,jdbcType=VARCHAR},
+      Status = #{status,jdbcType=TINYINT}
+    where slide_id = #{slideId,jdbcType=INTEGER}
+  </update>
+</mapper>

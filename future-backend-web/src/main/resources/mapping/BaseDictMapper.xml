@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.future.mapper.BaseDictMapper">
+  <resultMap id="BaseResultMap" type="com.future.pojo.BaseDict">
+    <id column="dict_id" jdbcType="INTEGER" property="dictId" />
+    <result column="type_code" jdbcType="VARCHAR" property="typeCode" />
+    <result column="dict_name" jdbcType="VARCHAR" property="dictName" />
+    <result column="dict_value" jdbcType="VARCHAR" property="dictValue" />
+    <result column="descn" jdbcType="VARCHAR" property="descn" />
+    <result column="order_sort" jdbcType="INTEGER" property="orderSort" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dict_id, type_code, dict_name, dict_value, descn, order_sort, status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from base_dict
+    where dict_id = #{dictId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from base_dict
+    where dict_id = #{dictId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.future.pojo.BaseDict">
+    insert into base_dict (dict_id, type_code, dict_name, 
+      dict_value, descn, order_sort, 
+      status)
+    values (#{dictId,jdbcType=INTEGER}, #{typeCode,jdbcType=VARCHAR}, #{dictName,jdbcType=VARCHAR}, 
+      #{dictValue,jdbcType=VARCHAR}, #{descn,jdbcType=VARCHAR}, #{orderSort,jdbcType=INTEGER}, 
+      #{status,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.future.pojo.BaseDict">
+    insert into base_dict
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dictId != null">
+        dict_id,
+      </if>
+      <if test="typeCode != null">
+        type_code,
+      </if>
+      <if test="dictName != null">
+        dict_name,
+      </if>
+      <if test="dictValue != null">
+        dict_value,
+      </if>
+      <if test="descn != null">
+        descn,
+      </if>
+      <if test="orderSort != null">
+        order_sort,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dictId != null">
+        #{dictId,jdbcType=INTEGER},
+      </if>
+      <if test="typeCode != null">
+        #{typeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dictName != null">
+        #{dictName,jdbcType=VARCHAR},
+      </if>
+      <if test="dictValue != null">
+        #{dictValue,jdbcType=VARCHAR},
+      </if>
+      <if test="descn != null">
+        #{descn,jdbcType=VARCHAR},
+      </if>
+      <if test="orderSort != null">
+        #{orderSort,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.future.pojo.BaseDict">
+    update base_dict
+    <set>
+      <if test="typeCode != null">
+        type_code = #{typeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dictName != null">
+        dict_name = #{dictName,jdbcType=VARCHAR},
+      </if>
+      <if test="dictValue != null">
+        dict_value = #{dictValue,jdbcType=VARCHAR},
+      </if>
+      <if test="descn != null">
+        descn = #{descn,jdbcType=VARCHAR},
+      </if>
+      <if test="orderSort != null">
+        order_sort = #{orderSort,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+    </set>
+    where dict_id = #{dictId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.future.pojo.BaseDict">
+    update base_dict
+    set type_code = #{typeCode,jdbcType=VARCHAR},
+      dict_name = #{dictName,jdbcType=VARCHAR},
+      dict_value = #{dictValue,jdbcType=VARCHAR},
+      descn = #{descn,jdbcType=VARCHAR},
+      order_sort = #{orderSort,jdbcType=INTEGER},
+      status = #{status,jdbcType=TINYINT}
+    where dict_id = #{dictId,jdbcType=INTEGER}
+  </update>
+</mapper>
