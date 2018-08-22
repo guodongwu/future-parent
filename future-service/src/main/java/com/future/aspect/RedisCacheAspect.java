@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
  * Created by wu on 2018/8/21.
  */
 
-@Component
 @Aspect
+@Component
 public class RedisCacheAspect {
     @Autowired
     private RedisHelper redisHelper;
@@ -21,7 +21,7 @@ public class RedisCacheAspect {
     public  void setJoinPoint(){
         System.out.println("我是一个切入点");
     }
-    @Around(value = "setJoinPoint")
+    @Around(value = "setJoinPoint()")
     public Object aroundMethod(ProceedingJoinPoint proceedingJoinPoint){
         Object result=null;
         System.out.println("调用从redis中查询的方法...");

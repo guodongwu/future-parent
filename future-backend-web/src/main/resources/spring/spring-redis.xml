@@ -16,6 +16,6 @@
         <property name="poolConfig" ref="poolConfig"/>
     </bean>
     <bean class="org.springframework.data.redis.core.StringRedisTemplate" id="stringRedisTemplate">
-        <constructor-arg name="connectionFactory" ref="jedisConnectionFactory"/>
+        <property name="connectionFactory" ref="jedisConnectionFactory"/>
     </bean>
 </beans>

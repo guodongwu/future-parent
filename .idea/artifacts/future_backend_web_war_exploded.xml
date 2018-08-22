@@ -55,7 +55,7 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.6" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.6" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.5" />
-          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.47" />
+          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.45" />
           <element id="archive" name="future-service-api-1.0-SNAPSHOT.jar">
             <element id="module-output" name="future-service-api" />
           </element>

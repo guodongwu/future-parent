@@ -20,6 +20,7 @@ public class BaseAreaServiceImpl implements BaseAreaService {
     @Autowired
     private BaseAreaMapper baseAreaMapper;
     @Override
+    @RedisCache
     public PageInfo<BaseArea> getAllByParentId(int parentId,int pageNum,int pageSize) {
         PageHelper.startPage(pageNum,pageSize);
         List<BaseArea> list= baseAreaMapper.getAllByParentId(parentId);
@@ -27,7 +28,6 @@ public class BaseAreaServiceImpl implements BaseAreaService {
        return pageInfo;
     }
 
-    @Override
     @RedisCache
     public BaseArea getBaseArea(int id) {
         BaseArea baseArea= baseAreaMapper.selectByPrimaryKey(id);

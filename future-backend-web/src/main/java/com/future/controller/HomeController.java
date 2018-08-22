@@ -1,8 +1,8 @@
 package com.future.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.future.jedis.RedisUtil;
 import com.future.pojo.BaseArea;
-import com.future.jedis.RedisHelper;
 import com.future.service.BaseAreaService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class HomeController {
     @Autowired
     private BaseAreaService baseAreaService;
     @Autowired
-    private  RedisHelper redisHelper;
+    private RedisUtil redisHelper;
     @GetMapping("/index")
     public String  index(Model model,@RequestParam(defaultValue = "0",name = "parentId",required = false)Integer parentId,
             @RequestParam(defaultValue = "1",name = "pageNum",required = false) Integer pageNum,
@@ -43,8 +43,6 @@ public class HomeController {
             baseArea= (BaseArea) JSONObject.toJavaObject(jsonObject,BaseArea.class);
         }else{
             baseArea=baseAreaService.getBaseArea(id);
-           // json= JSONObject.toJSONString(baseArea);
-            //redisHelper.set(BaseArea.class.getName()+"-"+id,json);
         }
         model.addAttribute("baseArea",baseArea);
         return "user";

@@ -4,11 +4,10 @@
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-
+    <context:component-scan base-package="com.future"/>
     <import resource="classpath:spring/spring-druid.xml"/>
     <import resource="classpath:spring/dubbo-consumer.xml"/>
     <import resource="classpath:spring/spring-redis.xml"/>
-    <context:component-scan base-package="com.future"/>
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:sqlMapConfig.xml"/>
@@ -55,4 +54,5 @@
     <aop:config>
         <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.future.service..*Impl.*.*(..))"></aop:advisor>
     </aop:config>
+    <aop:aspectj-autoproxy/>
 </beans>

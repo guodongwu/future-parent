@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * Created by wu on 2018/8/21.
  */
 @Component
-public class RedisHelper {
+public class RedisUtil {
     @Autowired
     private StringRedisTemplate redisTemplate;
     public void set(String key,String value){
