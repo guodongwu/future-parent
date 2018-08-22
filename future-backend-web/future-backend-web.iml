@@ -94,7 +94,14 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.6" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.5" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.45" level="project" />
-    <orderEntry type="module" module-name="future-service-api" />
+    <orderEntry type="module" module-name="future-service" />
+    <orderEntry type="module" module-name="future-dao" />
     <orderEntry type="module" module-name="future-model" />
+    <orderEntry type="module" module-name="future-service-api" />
+    <orderEntry type="module" module-name="future-utils" />
+    <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate.validator:hibernate-validator:6.0.10.Final" level="project" />
+    <orderEntry type="library" name="Maven: javax.validation:validation-api:2.0.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.3.4" level="project" />
   </component>
 </module>

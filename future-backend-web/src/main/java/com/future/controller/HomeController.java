@@ -3,14 +3,20 @@ package com.future.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.future.jedis.RedisUtil;
 import com.future.pojo.BaseArea;
+import com.future.pojo.BaseUser;
 import com.future.service.BaseAreaService;
+import com.future.service.BaseUserService;
+import com.future.utils.JsonResult;
+import com.future.utils.ResultCode;
+import com.future.vo.UserLogin;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 /**
  * Created by wu on 2018/8/20.
@@ -19,6 +25,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class HomeController {
     @Autowired
     private BaseAreaService baseAreaService;
+
+    @Autowired
+    private BaseUserService baseUserService;
     @Autowired
     private RedisUtil redisHelper;
     @GetMapping("/index")
@@ -48,4 +57,22 @@ public class HomeController {
         return "user";
     }
 
+
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
+    @PostMapping(value = "/login" ,produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public JsonResult login(@Valid UserLogin user, Errors errors){
+        if(errors.getErrorCount()>0){
+            return  new JsonResult("500",errors.getFieldErrors().get(0).getDefaultMessage());
+        }
+        BaseUser baseUser= baseUserService.getUser(user.getUsername(),user.getPassword());
+        if(baseUser!=null){
+            return new JsonResult(ResultCode.SUCCESS);
+        }
+        return new JsonResult("500","用户名或密码错误");
+
+    }
 }
