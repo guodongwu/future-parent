@@ -226,6 +226,11 @@
       <artifactId>jboss-logging</artifactId>
       <version>3.3.2.Final</version>
     </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>LATEST</version>
+    </dependency>
   </dependencies>
 </dependencyManagement>
   <build>

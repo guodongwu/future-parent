@@ -7,4 +7,6 @@ import com.future.pojo.BaseUser;
  */
 public interface BaseUserService {
     public BaseUser getUser(String username,String password);
+    public boolean hasUserByUserNameOrPhone(String userName,String phone);
+    public boolean addUser(BaseUser baseUser);
 }

@@ -71,6 +71,7 @@
           <element id="archive" name="future-utils-1.0-SNAPSHOT.jar">
             <element id="module-output" name="future-utils" />
           </element>
+          <element id="library" level="project" name="Maven: javax.servlet:servlet-api:3.0-alpha-1" />
           <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final" />
           <element id="library" level="project" name="Maven: org.hibernate.validator:hibernate-validator:6.0.10.Final" />
           <element id="library" level="project" name="Maven: javax.validation:validation-api:2.0.1.Final" />

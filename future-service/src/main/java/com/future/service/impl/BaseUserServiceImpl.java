@@ -17,4 +17,15 @@ public class BaseUserServiceImpl implements BaseUserService {
     public BaseUser getUser(String username, String password) {
        return baseUserMapper.getUser(username,password);
     }
+
+    @Override
+    public boolean hasUserByUserNameOrPhone(String userName, String phone) {
+      return   baseUserMapper.hasUserByUserNameOrPhone(userName,phone)>0;
+    }
+
+    @Override
+    public boolean addUser(BaseUser baseUser) {
+        int result= baseUserMapper.insert(baseUser);
+        return result>0;
+    }
 }

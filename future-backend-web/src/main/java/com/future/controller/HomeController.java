@@ -6,17 +6,25 @@ import com.future.pojo.BaseArea;
 import com.future.pojo.BaseUser;
 import com.future.service.BaseAreaService;
 import com.future.service.BaseUserService;
+import com.future.utils.CapchaHelper;
 import com.future.utils.JsonResult;
+import com.future.utils.Md5Utils;
 import com.future.utils.ResultCode;
-import com.future.vo.UserLogin;
+import com.future.validator.ValidatorLogin;
+import com.future.validator.ValidatorRegister;
+import com.future.vo.UserVo;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.util.Date;
 
 /**
  * Created by wu on 2018/8/20.
@@ -64,15 +72,56 @@ public class HomeController {
     }
     @PostMapping(value = "/login" ,produces = "application/json;charset=UTF-8")
     @ResponseBody
-    public JsonResult login(@Valid UserLogin user, Errors errors){
-        if(errors.getErrorCount()>0){
+    public JsonResult login(@Validated(value = ValidatorLogin.class) UserVo user, BindingResult errors){
+        if(errors.getFieldErrorCount()>0){
             return  new JsonResult("500",errors.getFieldErrors().get(0).getDefaultMessage());
         }
-        BaseUser baseUser= baseUserService.getUser(user.getUsername(),user.getPassword());
+        BaseUser baseUser= baseUserService.getUser(user.getUsername(),Md5Utils.encryptMD5(user.getPassword()));
         if(baseUser!=null){
-            return new JsonResult(ResultCode.SUCCESS);
+            return new JsonResult("200","登录成功");
         }
         return new JsonResult("500","用户名或密码错误");
 
+    }
+    @GetMapping("/capcha")
+    public void capcha(HttpServletRequest request, HttpServletResponse response){
+        new  CapchaHelper().getRandcode(request,response);
+    }
+    @GetMapping("/register")
+    public String register(){
+        return "register";
+    }
+    @PostMapping(value="/register",produces = "application/json;charset=UTF-8")
+    public @ResponseBody JsonResult register(HttpServletRequest request,Model model,@Validated(value = ValidatorRegister.class) UserVo user,BindingResult errors){
+        if(errors.getFieldErrorCount()>0){
+            return  new JsonResult("500",errors.getFieldErrors().get(0).getDefaultMessage());
+        }
+        if(!user.getPassword().equals(user.getCpwd())){
+            return new JsonResult("501","两次密码不一致");
+        }
+        HttpSession session= request.getSession();
+        String code= (String) session.getAttribute(CapchaHelper.RANDOMCODEKEY);
+        if(!code.toLowerCase().equals(user.getCode().toLowerCase())){
+            return new JsonResult("501","验证码错误");
+        }
+        boolean hasOne= baseUserService.hasUserByUserNameOrPhone(user.getUsername(),user.getPhone());
+        if(hasOne){
+            return new JsonResult("501","用户名或手机号已存在");
+        }
+        BaseUser baseUser=new BaseUser(){{
+            setUserStatus(1);
+            setAddTime(new Date());
+            setStatus((byte)1);
+            setUserName(user.getUsername());
+            setPassword(Md5Utils.encryptMD5(user.getPassword()));
+            setPhone(user.getPhone());
+        }};
+        boolean result= baseUserService.addUser(baseUser);
+        //boolean result=true;
+        if(result){
+            //发送邮件
+            return new JsonResult("200","注册成功！");
+        }
+        return new JsonResult("501","注册失败");
     }
 }
