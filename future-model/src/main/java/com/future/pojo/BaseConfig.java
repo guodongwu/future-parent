@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class BaseConfig implements Serializable {
     private String configId;
 
-    private String yype;
+    private String type;
 
     private String name;
 
@@ -29,12 +29,12 @@ public class BaseConfig implements Serializable {
         this.configId = configId == null ? null : configId.trim();
     }
 
-    public String getYype() {
-        return yype;
+    public String getType() {
+        return type;
     }
 
-    public void setYype(String yype) {
-        this.yype = yype == null ? null : yype.trim();
+    public void setType(String yype) {
+        this.type = yype == null ? null : type.trim();
     }
 
     public String getName() {

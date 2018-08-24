@@ -9,7 +9,7 @@ public class BasePermission implements Serializable {
 
     private String permissionDesc;
 
-    private String parentId;
+    private int parentId;
 
     private Integer sortOrder;
 
@@ -41,12 +41,13 @@ public class BasePermission implements Serializable {
         this.permissionDesc = permissionDesc == null ? null : permissionDesc.trim();
     }
 
-    public String getParentId() {
+    public int getParentId() {
         return parentId;
     }
 
-    public void setParentId(String parentId) {
-        this.parentId = parentId == null ? null : parentId.trim();
+    public void setParentId(int
+                                    parentId) {
+        this.parentId = parentId;
     }
 
     public Integer getSortOrder() {

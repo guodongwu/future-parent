@@ -3,7 +3,7 @@
 <mapper namespace="com.future.mapper.BaseConfigMapper">
   <resultMap id="BaseResultMap" type="com.future.pojo.BaseConfig">
     <id column="config_id" jdbcType="VARCHAR" property="configId" />
-    <result column="yype" jdbcType="VARCHAR" property="yype" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="value" jdbcType="VARCHAR" property="value" />
     <result column="descn" jdbcType="VARCHAR" property="descn" />
@@ -12,7 +12,7 @@
     <result column="status" jdbcType="TINYINT" property="status" />
   </resultMap>
   <sql id="Base_Column_List">
-    config_id, yype, name, value, descn, tip, order_sort, status
+    config_id, type, name, value, descn, tip, order_sort, status
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -25,10 +25,10 @@
     where config_id = #{configId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.future.pojo.BaseConfig">
-    insert into base_config (config_id, yype, name, 
+    insert into base_config (config_id, type, name, 
       value, descn, tip, 
       order_sort, status)
-    values (#{configId,jdbcType=VARCHAR}, #{yype,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+    values (#{configId,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{value,jdbcType=VARCHAR}, #{descn,jdbcType=VARCHAR}, #{tip,jdbcType=VARCHAR}, 
       #{orderSort,jdbcType=INTEGER}, #{status,jdbcType=TINYINT})
   </insert>
@@ -38,8 +38,8 @@
       <if test="configId != null">
         config_id,
       </if>
-      <if test="yype != null">
-        yype,
+      <if test="type != null">
+        type,
       </if>
       <if test="name != null">
         name,
@@ -64,8 +64,8 @@
       <if test="configId != null">
         #{configId,jdbcType=VARCHAR},
       </if>
-      <if test="yype != null">
-        #{yype,jdbcType=VARCHAR},
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
       </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
@@ -90,8 +90,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.future.pojo.BaseConfig">
     update base_config
     <set>
-      <if test="yype != null">
-        yype = #{yype,jdbcType=VARCHAR},
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
       </if>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
@@ -116,7 +116,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.future.pojo.BaseConfig">
     update base_config
-    set yype = #{yype,jdbcType=VARCHAR},
+    set type = #{type,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
       value = #{value,jdbcType=VARCHAR},
       descn = #{descn,jdbcType=VARCHAR},

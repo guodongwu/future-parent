@@ -5,7 +5,7 @@
     <id column="permission_id" jdbcType="INTEGER" property="permissionId" />
     <result column="permission_name" jdbcType="VARCHAR" property="permissionName" />
     <result column="permission_desc" jdbcType="VARCHAR" property="permissionDesc" />
-    <result column="parent_id" jdbcType="VARCHAR" property="parentId" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
     <result column="sort_order" jdbcType="INTEGER" property="sortOrder" />
     <result column="status" jdbcType="TINYINT" property="status" />
   </resultMap>
@@ -27,7 +27,7 @@
       parent_id, sort_order, status
       )
     values (#{permissionId,jdbcType=INTEGER}, #{permissionName,jdbcType=VARCHAR}, #{permissionDesc,jdbcType=VARCHAR}, 
-      #{parentId,jdbcType=VARCHAR}, #{sortOrder,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}
+      #{parentId,jdbcType=INTEGER}, #{sortOrder,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.future.pojo.BasePermission">
@@ -63,7 +63,7 @@
         #{permissionDesc,jdbcType=VARCHAR},
       </if>
       <if test="parentId != null">
-        #{parentId,jdbcType=VARCHAR},
+        #{parentId,jdbcType=INTEGER},
       </if>
       <if test="sortOrder != null">
         #{sortOrder,jdbcType=INTEGER},
@@ -83,7 +83,7 @@
         permission_desc = #{permissionDesc,jdbcType=VARCHAR},
       </if>
       <if test="parentId != null">
-        parent_id = #{parentId,jdbcType=VARCHAR},
+        parent_id = #{parentId,jdbcType=INTEGER},
       </if>
       <if test="sortOrder != null">
         sort_order = #{sortOrder,jdbcType=INTEGER},
@@ -98,7 +98,7 @@
     update base_permission
     set permission_name = #{permissionName,jdbcType=VARCHAR},
       permission_desc = #{permissionDesc,jdbcType=VARCHAR},
-      parent_id = #{parentId,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=INTEGER},
       sort_order = #{sortOrder,jdbcType=INTEGER},
       status = #{status,jdbcType=TINYINT}
     where permission_id = #{permissionId,jdbcType=INTEGER}
