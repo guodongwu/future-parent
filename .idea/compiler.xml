@@ -25,6 +25,7 @@
         <module name="futrue-dao" />
         <module name="futrue-model" />
         <module name="futrue-service" />
+        <module name="future-activemq" />
         <module name="future-backend-web" />
         <module name="future-dao" />
         <module name="future-model" />
@@ -37,6 +38,7 @@
       <module name="futrue-dao" target="1.8" />
       <module name="futrue-model" target="1.8" />
       <module name="futrue-service" target="1.8" />
+      <module name="future-activemq" target="1.8" />
       <module name="future-annotation" target="1.8" />
       <module name="future-backend-web" target="1.8" />
       <module name="future-dao" target="1.8" />

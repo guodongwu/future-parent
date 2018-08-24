@@ -6,6 +6,7 @@ import com.future.pojo.BaseArea;
 import com.future.pojo.BaseUser;
 import com.future.service.BaseAreaService;
 import com.future.service.BaseUserService;
+import com.future.service.activemq.producer.AMQProducerService;
 import com.future.utils.CapchaHelper;
 import com.future.utils.JsonResult;
 import com.future.utils.Md5Utils;
@@ -15,12 +16,15 @@ import com.future.validator.ValidatorRegister;
 import com.future.vo.UserVo;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.jms.Destination;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -38,6 +42,11 @@ public class HomeController {
     private BaseUserService baseUserService;
     @Autowired
     private RedisUtil redisHelper;
+    @Autowired
+    private AMQProducerService producerService;
+    @Autowired
+    @Qualifier(value = "destinationQueue")
+    private Destination destination;
     @GetMapping("/index")
     public String  index(Model model,@RequestParam(defaultValue = "0",name = "parentId",required = false)Integer parentId,
             @RequestParam(defaultValue = "1",name = "pageNum",required = false) Integer pageNum,
@@ -101,7 +110,8 @@ public class HomeController {
         }
         HttpSession session= request.getSession();
         String code= (String) session.getAttribute(CapchaHelper.RANDOMCODEKEY);
-        if(!code.toLowerCase().equals(user.getCode().toLowerCase())){
+
+        if(code==null || !code.toLowerCase().equals(user.getCode().toLowerCase())){
             return new JsonResult("501","验证码错误");
         }
         boolean hasOne= baseUserService.hasUserByUserNameOrPhone(user.getUsername(),user.getPhone());
@@ -120,6 +130,10 @@ public class HomeController {
         //boolean result=true;
         if(result){
             //发送邮件
+            String json= JSONObject.toJSONString(baseUser);
+            StringBuilder sb=new StringBuilder();
+            sb.append("{\"userType\":\"register\",\"user\":"+json+"}");
+            producerService.sendMsg(destination,sb.toString());
             return new JsonResult("200","注册成功！");
         }
         return new JsonResult("501","注册失败");
