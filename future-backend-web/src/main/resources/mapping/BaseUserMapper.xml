@@ -40,6 +40,11 @@
     from base_user
     where user_id = #{userId,jdbcType=INTEGER}
   </select>
+  <select id="getAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from base_user
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from base_user
     where user_id = #{userId,jdbcType=INTEGER}

@@ -43,6 +43,7 @@
         <property name="freemarkerVariables">
             <map>
                 <entry key="xml_escape" value-ref="fmXmlEscape"/>
+                <entry key="role" value-ref="roleDirectiveModel"/>
             </map>
         </property>
         <property name="defaultEncoding" value="UTF-8"/>
@@ -54,8 +55,10 @@
                 <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
                 <prop key="date_format">yyyy-MM-dd</prop>
                 <prop key="number_format">#.##</prop>
+                <prop key="boolean_format">yes,no</prop>
             </props>
         </property>
     </bean>
+    <bean id="roleDirectiveModel" class="com.future.freemarker.RoleDirectiveModel"/>
     <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape"/>
 </beans>

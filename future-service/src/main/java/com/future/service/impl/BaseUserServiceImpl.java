@@ -6,6 +6,8 @@ import com.future.service.BaseUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by wu on 2018/8/22.
  */
@@ -27,5 +29,10 @@ public class BaseUserServiceImpl implements BaseUserService {
     public boolean addUser(BaseUser baseUser) {
         int result= baseUserMapper.insert(baseUser);
         return result>0;
+    }
+
+    @Override
+    public List<BaseUser> getUser() {
+       return baseUserMapper.getAll();
     }
 }
