@@ -15,6 +15,7 @@
     <module>future-utils</module>
     <module>future-service-api</module>
     <module>future-activemq</module>
+      <module>future-study</module>
   </modules>
   <packaging>pom</packaging>
   <name>future-parent</name>
