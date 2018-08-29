@@ -17,6 +17,7 @@ public class DbHelper {
             Class.forName("com.mysql.jdbc.Driver");//com.mysql.jdbc.Driver
              conn= DriverManager.getConnection(url,username,password);
             statement=conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE ,ResultSet.CONCUR_UPDATABLE);
+            conn.setAutoCommit(false);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -37,18 +38,25 @@ public class DbHelper {
             conn.close();
     }
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws Exception {
+            final  String url="jdbc:mysql://localhost:3306/talents";
+            final  String username="root";
+            final String password="root";
         String sql="select * from base_user";
-        Connection connection=DbHelper.getInstance().conn;
-        connection.setAutoCommit(false);
-        Statement statement=connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
+        String sql2="insert into `base_user` (`user_name`, `password`) values('superadmin','e10adc3949ba59abbe56e057f20f883e')";
+        Class.forName("com.mysql.jdbc.Driver");//com.mysql.jdbc.Driver
+        Connection conn= DriverManager.getConnection(url,username,password);
+        conn.setAutoCommit(false);
+        Statement statement=conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE ,ResultSet.CONCUR_UPDATABLE);
 
         ResultSet rs=statement.executeQuery(sql);
         while (rs.next()){
             System.out.println(rs.getInt("user_id")+";"+rs.getString("user_name"));
             rs.updateString("user_name","superadmin");
         }
-        connection.commit();
-        DbHelper.getInstance().close();
+        //statement.execute(sql2);
+        conn.commit();
+        statement.close();
+        conn.close();
     }
 }

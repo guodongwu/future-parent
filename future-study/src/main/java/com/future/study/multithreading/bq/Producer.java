@@ -1,4 +1,4 @@
-package com.future.multithreading.bq;
+package com.future.study.multithreading.bq;
 
 import java.util.Random;
 import java.util.concurrent.*;
@@ -44,6 +44,7 @@ class Producer  implements  Runnable{
         isRunning = false;
     }
 }
+
 //消费者
 class Consumer implements Runnable {
 
@@ -81,6 +82,7 @@ class Consumer implements Runnable {
 
 
 }
+
 class BlockingQueueTest {
 
     public static void main(String[] args) throws InterruptedException {
