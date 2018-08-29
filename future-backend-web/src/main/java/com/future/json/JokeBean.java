@@ -1,4 +1,4 @@
-package com.future.study.servlet;
+package com.future.json;
 
 import com.google.gson.annotations.SerializedName;
 

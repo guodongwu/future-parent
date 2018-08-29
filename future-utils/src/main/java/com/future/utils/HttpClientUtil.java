@@ -25,7 +25,6 @@ import java.util.Map;
  */
 public class HttpClientUtil {
     /**
-     * @param type
      * @param url
      * @param map
      * @return
