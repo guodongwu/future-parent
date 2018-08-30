@@ -71,7 +71,7 @@
                 str += templ.replace("{{src}}", data.data[i].src);
             }
             $(str).appendTo($("#demo"));
-            success();
+            //success();
             end();
         }
     });
