@@ -12,10 +12,37 @@
     <link href="${pageContext.request.contextPath}/static/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-    <form class="panel  form-group " action="/ServletEx3" method="post">
-        名字：<input class="form-control" type="text" name="name"/>
-        网址：<input class="form-control"  type="text" name="url"/>
-        <input class="form-control" type="submit" value="提交" />
+<div class="container">
+    <div class="form row">
+    <form class="form-horizontal" action="ServletEx3" method="get" role="form">
+        <div class="form-group">
+            <label  class="col-sm-2 control-label">名字</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="name"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label">网址</label>
+            <div class="col-sm-10">
+                <input class="form-control"  type="text" name="url"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label">网址</label>
+            <div class="col-sm-10">
+                <input class="checkbox checkbox-inline"  type="checkbox" name="java" checked/>java
+                <input class="checkbox checkbox-inline"  type="checkbox" name="net"/>net
+                <input class="checkbox checkbox-inline"  type="checkbox" name="python" checked/>python
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input class="btn btn-primary" type="submit" value="提交" />
+            </div>
+        </div>
+
     </form>
+    </div>
+</div>
 </body>
 </html>

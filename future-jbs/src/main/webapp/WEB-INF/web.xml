@@ -4,6 +4,23 @@
            xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
            version="3.0">
+     <!--   <filter>
+            <filter-name>LogFilter</filter-name>
+            <filter-class>com.study.servlet.log.LogFilter</filter-class>
+            <init-param>
+                <param-name>site</param-name>
+                <param-value>菜鸟学飞</param-value>
+            </init-param>
+        </filter>
+    &lt;!&ndash; dispatcher： REQUEST：当用户直接访问页面时，Web容器将会调用过滤器。如果目标资源是通过RequestDispatcher的include()或forward()方法访问时，那么该过滤器就不会被调用。
+  INCLUDE：如果目标资源是通过RequestDispatcher的include()方法访问时，那么该过滤器将被调用。除此之外，该过滤器不会被调用。
+  FORWARD：如果目标资源是通过RequestDispatcher的forward()方法访问时，那么该过滤器将被调用，除此之外，该过滤器不会被调用。
+  ERROR：如果目标资源是通过声明式异常处理机制调用时，那么该过滤器将被调用。除此之外，过滤器不会被调用。&ndash;&gt;
+        <filter-mapping>
+            <filter-name>LogFilter</filter-name>
+            <url-pattern>/ServletEx3</url-pattern>
+        </filter-mapping>-->
+
         <servlet>
             <servlet-name>ServletEx1</servlet-name>
             <servlet-class>com.study.servlet.create.ServletEx1</servlet-class>
@@ -20,12 +37,28 @@
             <servlet-name>ServletEx2</servlet-name>
             <url-pattern>/ServletEx2</url-pattern>
         </servlet-mapping>
+        <servlet>
+            <servlet-name>ServletEx3</servlet-name>
+            <servlet-class>com.study.servlet.create.ServletEx3</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>ServletEx3</servlet-name>
+            <url-pattern>/ServletEx3</url-pattern>
+        </servlet-mapping>
     <servlet>
-        <servlet-name>ServletEx3</servlet-name>
-        <servlet-class>com.study.servlet.create.ServletEx3</servlet-class>
+        <servlet-name>ErrorHandler</servlet-name>
+        <servlet-class>com.study.servlet.err.ErrorHandler</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ServletEx3</servlet-name>
-        <url-pattern>/ServletEx3</url-pattern>
+        <servlet-name>ErrorHandler</servlet-name>
+        <url-pattern>/ErrorHandler</url-pattern>
     </servlet-mapping>
+  <error-page>
+        <error-code>404</error-code>
+        <location>/ErrorHandler</location>
+    </error-page>
+    <error-page>
+        <exception-type>javax.servlet.ServletException</exception-type>
+        <location>/ErrorHandler</location>
+    </error-page>
 </web-app>
