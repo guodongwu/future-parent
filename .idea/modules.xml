@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/future-activemq/future-activemq.iml" filepath="$PROJECT_DIR$/future-activemq/future-activemq.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-backend-web/future-backend-web.iml" filepath="$PROJECT_DIR$/future-backend-web/future-backend-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-dao/future-dao.iml" filepath="$PROJECT_DIR$/future-dao/future-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/future-jbs/future-jbs.iml" filepath="$PROJECT_DIR$/future-jbs/future-jbs.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-model/future-model.iml" filepath="$PROJECT_DIR$/future-model/future-model.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-parent.iml" filepath="$PROJECT_DIR$/future-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-service/future-service.iml" filepath="$PROJECT_DIR$/future-service/future-service.iml" />
