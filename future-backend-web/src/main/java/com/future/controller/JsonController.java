@@ -29,7 +29,7 @@ public class JsonController {
 
         return "api/index";
     }
-    @PostMapping(value = {"/","/index"},produces = "application/json")
+    @PostMapping(value = {"/","/index"},produces = "application/json;charset=utf-8")
     public @ResponseBody  String index(@RequestParam(defaultValue = "1",required = false) int page) throws IOException {
         String  URL="https://www.apiopen.top/satinGodApi";
         Map map=new HashMap();
