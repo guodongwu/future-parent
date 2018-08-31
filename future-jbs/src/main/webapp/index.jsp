@@ -7,24 +7,30 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
     <title></title>
     <link href="${pageContext.request.contextPath}/static/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="${pageContext.request.contextPath}/static/js/jquery.min.js"></script>
 </head>
 <body>
 <div class="container">
     <div class="form row">
-    <form class="form-horizontal" action="ServletEx3" method="get" role="form">
+    <form method="post" class="form-horizontal" action="ServletEx3"  enctype="multipart/form-data"  role="form" onsubmit="validForm(this)">
         <div class="form-group">
             <label  class="col-sm-2 control-label">名字</label>
             <div class="col-sm-10">
-                <input class="form-control" type="text" name="name"/>
+                <input class="form-control" type="text" name="name" id="name"/>
             </div>
         </div>
         <div class="form-group">
             <label  class="col-sm-2 control-label">网址</label>
             <div class="col-sm-10">
                 <input class="form-control"  type="text" name="url"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label">上传</label>
+            <div class="col-sm-10">
+                <input class="form-control"  type="file" name="file"/>
             </div>
         </div>
         <div class="form-group">
@@ -37,11 +43,16 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <input class="btn btn-primary" type="submit" value="提交" />
+                <input class="btn btn-primary" type="submit"  value="提交" />
             </div>
         </div>
-
     </form>
+        <script>
+            function validForm(fm){
+                fm.action = fm.action + "?name=" + fm['name'].value;
+                return true;
+            }
+        </script>
     </div>
 </div>
 </body>

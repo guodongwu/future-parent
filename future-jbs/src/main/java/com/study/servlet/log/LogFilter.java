@@ -3,6 +3,7 @@ package com.study.servlet.log;
 import javax.servlet.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 
 /**
  * Created by wu on 2018/8/30.
@@ -17,15 +18,18 @@ public class LogFilter implements Filter {
         //获取请求信息(测试时可以通过get方式在URL中添加name)
         //http://localhost:8080/servlet_demo/helloword?name=123
         String name = req.getParameter("name");
+        // ServletInputStream();
 
         // 过滤器核心代码逻辑
         System.out.println("过滤器获取请求参数:"+name);
         System.out.println("第二个过滤器执行--网站名称：www.runoob.com");
+        String[] array=new String[]{"admin","superadmin","guest","user"};
 
-        if("123".equals(name)){
+        if(Arrays.asList(array).contains(name)){
             // 把请求传回过滤链
             chain.doFilter(req, resp);
         }else{
+
             //设置返回内容类型
             resp.setContentType("text/html;charset=utf-8");
 
