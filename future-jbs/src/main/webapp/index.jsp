@@ -14,7 +14,7 @@
 <body>
 <div class="container">
     <div class="form row">
-    <form method="post" class="form-horizontal" action="ServletEx3"  enctype="multipart/form-data"  role="form" onsubmit="validForm(this)">
+    <form method="post" class="form-horizontal" action="ServletEx3"  enctype="multipart/form-data"  role="form">
         <div class="form-group">
             <label  class="col-sm-2 control-label">名字</label>
             <div class="col-sm-10">
@@ -47,12 +47,7 @@
             </div>
         </div>
     </form>
-        <script>
-            function validForm(fm){
-                fm.action = fm.action + "?name=" + fm['name'].value;
-                return true;
-            }
-        </script>
+
     </div>
 </div>
 </body>
