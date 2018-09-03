@@ -30,7 +30,6 @@
         <module name="future-dao" />
         <module name="future-jbs" />
         <module name="future-model" />
-        <module name="future-sboot" />
         <module name="future-service" />
         <module name="future-service-api" />
         <module name="future-study" />

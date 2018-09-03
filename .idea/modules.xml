@@ -11,7 +11,6 @@
       <module fileurl="file://$PROJECT_DIR$/future-jbs/future-jbs.iml" filepath="$PROJECT_DIR$/future-jbs/future-jbs.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-model/future-model.iml" filepath="$PROJECT_DIR$/future-model/future-model.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-parent.iml" filepath="$PROJECT_DIR$/future-parent.iml" />
-      <module fileurl="file://$PROJECT_DIR$/future-sboot/future-sboot.iml" filepath="$PROJECT_DIR$/future-sboot/future-sboot.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-service/future-service.iml" filepath="$PROJECT_DIR$/future-service/future-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-service-api/future-service-api.iml" filepath="$PROJECT_DIR$/future-service-api/future-service-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-study/future-study.iml" filepath="$PROJECT_DIR$/future-study/future-study.iml" />
