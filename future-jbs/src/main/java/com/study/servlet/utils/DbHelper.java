@@ -31,16 +31,22 @@ public class DbHelper {
             e.printStackTrace();
         }
     }
-    public static Connection getConnection(){
-        try {
-            Class.forName(driver);
-            Connection connection= DriverManager.getConnection(url,username,password);
-            return connection;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
+
+    private  static  ThreadLocal<Connection> connectionThreadLocal=new ThreadLocal<Connection>(){
+        @Override
+        protected Connection initialValue() {
+            try {
+                Class.forName(driver);
+                return DriverManager.getConnection(url,username,password);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            return null;
         }
-        return null;
+    };
+    public static Connection getConnection(){
+        return connectionThreadLocal.get();
     }
 }

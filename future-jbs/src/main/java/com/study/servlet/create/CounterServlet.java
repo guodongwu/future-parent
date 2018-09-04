@@ -2,6 +2,7 @@ package com.study.servlet.create;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.SingleThreadModel;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,7 +12,7 @@ import java.io.PrintWriter;
 /**
  * Created by wu on 2018/9/4.
  */
-public class CounterServlet extends HttpServlet {
+public class CounterServlet extends HttpServlet implements SingleThreadModel{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletContext context=getServletContext();
