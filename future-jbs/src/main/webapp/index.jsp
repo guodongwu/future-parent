@@ -6,12 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="my" uri="/mytag" %>
 <html>
     <title></title>
     <link href="${pageContext.request.contextPath}/static/css/bootstrap.min.css" rel="stylesheet"/>
     <script src="${pageContext.request.contextPath}/static/js/jquery.min.js"></script>
 </head>
 <body>
+
 <div class="container">
     <div class="form row">
     <form method="post" class="form-horizontal" action="ServletEx3"  enctype="multipart/form-data"  role="form">
@@ -49,6 +51,16 @@
     </form>
 
     </div>
+</div>
+<div class="modal-footer"><my:hello/>
+    <%
+        int n1=0,n2=0;
+        if(request.getParameter("num1")!=null)
+            n1=Integer.parseInt(request.getParameter("num1"));
+        if(request.getParameter("num1")!=null)
+            n2=Integer.parseInt(request.getParameter("num2"));
+    %>
+<my:max num1="<%=n1%>" num2="<%=n2%>"></my:max>
 </div>
 </body>
 </html>

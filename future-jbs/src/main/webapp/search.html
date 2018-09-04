@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script language="javascript">
+        function fsubmit() {
+            if(searchForm.round[0].checked){
+                searchForm.action="list?cond=all";
+            }else if(searchForm.round[1].checked){
+                searchForm.action="list?cond=precision";
+            }else{
+                searchForm.action="list?cond=keyword";
+            }
+        }
+        function hideall() {
+            if(searchForm.round[0].checked){
+                pre.style.display="none";
+                key.style.display="none";
+            }
+        }
+        function showpre() {
+            if(searchForm.round[1].checked){
+                pre.style.display="";
+                key.style.display="none";
+            }else{
+                pre.style.display="none";
+            }
+        }
+        function showkey() {
+            if(searchForm.round[2].checked){
+                pre.style.display="none";
+                key.style.display="";
+            }else{
+                key.style.display="none";
+            }
+        }
+
+    </script>
+</head>
+<body>
+<form name="searchForm" action="" method="post" onclick="fsubmit()">
+    <input type="radio" name="round" onclick="hideall()">查看所有用户
+    <input type="radio" name="round" onclick="showpre()">精确查找
+    <input type="radio" name="round" onclick="showkey()">关键词查找
+    <input type="reset" value="重置">
+    <input type="submit" value="搜索">
+    <table id="pre" style="display:none">
+        <tr>
+            <td>用户名</td>
+            <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+            <td>手机</td>
+            <td><input type="text" name="phone"></td>
+        </tr>
+    </table>
+    <table id="key" style="display: none;">
+        <tr>
+            <td>请输入关键词</td>
+            <td><input type="text" name="keyword"></td>
+        </tr>
+
+    </table>
+
+</form>
+</body>
+</html>

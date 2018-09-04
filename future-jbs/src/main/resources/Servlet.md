@@ -35,3 +35,20 @@
       destory()--->GC
 #5 ServletContext
         共享信息setAttribute()
+####变量的线程安全        
+    本地变量是线程安全 
+    synchronized doGet()(不推荐)
+    静态变量非线程安全
+####属性线程安全   
+    ServletContext 非线程安全
+    synchronized Session 
+    ServletRequest 线程安全   
+      
+###建议
+      尽可能使用本地变量
+      使用只读胡实例变量和静态变量
+      不要在Servlet种创建自己的线程
+      修改共享对象时,一定要使用同步,尽可能胡缩小同步代码的范围
+      不要在service()或者doXXX方法上进行同步
+      在多个不同的servlet中 对外部对象修改操作,加锁 互斥
+      
