@@ -33,6 +33,7 @@
         <module name="future-service" />
         <module name="future-service-api" />
         <module name="future-study" />
+        <module name="future-thread" />
         <module name="future-utils" />
       </profile>
     </annotationProcessing>
@@ -51,6 +52,7 @@
       <module name="future-service" target="1.8" />
       <module name="future-service-api" target="1.8" />
       <module name="future-study" target="1.8" />
+      <module name="future-thread" target="1.8" />
       <module name="future-utils" target="1.8" />
     </bytecodeTargetLevel>
   </component>

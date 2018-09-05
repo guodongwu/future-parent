@@ -17,6 +17,7 @@
     <module>future-activemq</module>
       <module>future-study</module>
       <module>future-jbs</module>
+      <module>future-thread</module>
   </modules>
   <packaging>pom</packaging>
   <name>future-parent</name>

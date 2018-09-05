@@ -7,10 +7,10 @@
     <file url="file://$PROJECT_DIR$/future-dao" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/future-jbs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/future-model" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/future-sboot" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/future-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/future-service-api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/future-study" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/future-thread" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/future-utils" charset="UTF-8" />
   </component>
 </project>
