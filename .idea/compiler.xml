@@ -44,12 +44,12 @@
       <module name="future-annotation" target="1.8" />
       <module name="future-backend-web" target="1.8" />
       <module name="future-dao" target="1.8" />
-      <module name="future-jbs" target="1.7" />
+      <module name="future-jbs" target="1.8" />
       <module name="future-model" target="1.8" />
       <module name="future-parent" target="1.8" />
       <module name="future-sboot" target="1.8" />
       <module name="future-service" target="1.8" />
-      <module name="future-service-api" target="1.7" />
+      <module name="future-service-api" target="1.8" />
       <module name="future-study" target="1.8" />
       <module name="future-utils" target="1.8" />
     </bytecodeTargetLevel>

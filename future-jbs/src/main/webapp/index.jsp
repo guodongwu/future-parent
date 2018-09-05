@@ -1,4 +1,6 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.future.pojo.BaseUser" %><%--
   Created by IntelliJ IDEA.
   User: wu
   Date: 2018/8/30
@@ -52,7 +54,7 @@
 
     </div>
 </div>
-<div class="modal-footer"><my:hello/>
+<div class="panel"><my:hello/>
     <%
         int n1=0,n2=0;
         if(request.getParameter("num1")!=null)
@@ -61,6 +63,57 @@
             n2=Integer.parseInt(request.getParameter("num2"));
     %>
 <my:max num1="<%=n1%>" num2="<%=n2%>"></my:max>
+    <%! int size=3;%>
+    <my:greet>
+        <font style="color:blue" size="<%=size++%>">abc</font>
+    </my:greet>
+
+    <% if(size>5) size=3;%>
+
+    <%
+        String name="default";
+        if(request.getParameter("name")!=null){
+            name=request.getParameter("name").toLowerCase();
+        }
+    %>
+    <my:switch>
+        <my:case cond='<%=name.equals("admin")%>'>
+            <% out.println(name+" is  Manager");%>
+        </my:case>
+        <my:case cond='<%=name.equals("guest")%>'>
+            <% out.println(name+" is  Guest");%>
+        </my:case>
+        <my:default>
+            <% out.println(name+" is  employee");%>
+        </my:default>
+    </my:switch>
+<% List list=new ArrayList();
+
+    for(int i=0;i<10;i++) {
+        BaseUser user = new BaseUser();
+        user.setUserName("admin" + i);
+        user.setPhone("1351111110" + i);
+        list.add(user);
+    }
+%>
+    <!--设置tag的 variable-class
+    <variable>
+            <name-from-attribute>var</name-from-attribute>
+            <variable-class>com.future.pojo.BaseUser</variable-class>
+            <scope>NESTED</scope>
+    </variable>
+    -->
+    <%--<jsp:useBean id="user" class="com.future.pojo.BaseUser" />--%>
+    <table class="table">
+        <tr>用户名<td></td><td>电话</td></tr>
+        <my:iterate var="user" items="<%=list%>">
+            <Tr>
+                <td><jsp:getProperty name="user" property="userName"/></td>
+                <td>${user.phone}</td>
+            </Tr>
+        </my:iterate>
+    </table>
+
 </div>
 </body>
 </html>
