@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.future.mapper.BaseConfigMapper">
-  <resultMap id="BaseResultMap" type="com.future.pojo.BaseConfig">
+<mapper namespace="com.future.backend.mapper.BaseConfigMapper">
+  <resultMap id="BaseResultMap" type="com.future.backend.entity.BaseConfig">
     <id column="config_id" jdbcType="VARCHAR" property="configId" />
     <result column="type" jdbcType="VARCHAR" property="type" />
     <result column="name" jdbcType="VARCHAR" property="name" />
@@ -24,7 +24,7 @@
     delete from base_config
     where config_id = #{configId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.future.pojo.BaseConfig">
+  <insert id="insert" parameterType="com.future.backend.entity.BaseConfig">
     insert into base_config (config_id, type, name, 
       value, descn, tip, 
       order_sort, status)
@@ -32,7 +32,7 @@
       #{value,jdbcType=VARCHAR}, #{descn,jdbcType=VARCHAR}, #{tip,jdbcType=VARCHAR}, 
       #{orderSort,jdbcType=INTEGER}, #{status,jdbcType=TINYINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.future.pojo.BaseConfig">
+  <insert id="insertSelective" parameterType="com.future.backend.entity.BaseConfig">
     insert into base_config
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="configId != null">
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.future.pojo.BaseConfig">
+  <update id="updateByPrimaryKeySelective" parameterType="com.future.backend.entity.BaseConfig">
     update base_config
     <set>
       <if test="type != null">
@@ -114,7 +114,7 @@
     </set>
     where config_id = #{configId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.future.pojo.BaseConfig">
+  <update id="updateByPrimaryKey" parameterType="com.future.backend.entity.BaseConfig">
     update base_config
     set type = #{type,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},

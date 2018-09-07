@@ -27,11 +27,13 @@
         <module name="futrue-service" />
         <module name="future-activemq" />
         <module name="future-backend-web" />
+        <module name="future-backstage" />
         <module name="future-dao" />
         <module name="future-jbs" />
         <module name="future-model" />
         <module name="future-service" />
         <module name="future-service-api" />
+        <module name="future-struts2" />
         <module name="future-study" />
         <module name="future-thread" />
         <module name="future-utils" />
@@ -44,6 +46,7 @@
       <module name="future-activemq" target="1.8" />
       <module name="future-annotation" target="1.8" />
       <module name="future-backend-web" target="1.8" />
+      <module name="future-backstage" target="1.8" />
       <module name="future-dao" target="1.8" />
       <module name="future-jbs" target="1.8" />
       <module name="future-model" target="1.8" />
@@ -51,6 +54,7 @@
       <module name="future-sboot" target="1.8" />
       <module name="future-service" target="1.8" />
       <module name="future-service-api" target="1.8" />
+      <module name="future-struts2" target="1.8" />
       <module name="future-study" target="1.8" />
       <module name="future-thread" target="1.8" />
       <module name="future-utils" target="1.8" />

@@ -1,8 +1,7 @@
 package com.future.activemq.producer.impl;
 
-import com.future.service.activemq.producer.AMQProducerService;
+import com.future.activemq.producer.AMQProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;

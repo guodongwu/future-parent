@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.future.mapper.BaseUserMapper">
-  <resultMap id="BaseResultMap" type="com.future.pojo.BaseUser">
+<mapper namespace="com.future.backend.mapper.BaseUserMapper">
+  <resultMap id="BaseResultMap" type="com.future.backend.entity.BaseUser">
     <id column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="unicode" jdbcType="VARCHAR" property="unicode" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
@@ -44,7 +44,7 @@
     delete from base_user
     where user_id = #{userId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.future.pojo.BaseUser">
+  <insert id="insert" parameterType="com.future.backend.entity.BaseUser">
     insert into base_user (user_id, unicode, user_name, 
       password, salt, true_name, 
       phone, idcard, gender, 
@@ -64,7 +64,7 @@
       #{addTime,jdbcType=TIMESTAMP}, #{addIp,jdbcType=VARCHAR}, #{lastTime,jdbcType=TIMESTAMP}, 
       #{lastIp,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.future.pojo.BaseUser">
+  <insert id="insertSelective" parameterType="com.future.backend.entity.BaseUser">
     insert into base_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userId != null">
@@ -227,7 +227,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.future.pojo.BaseUser">
+  <update id="updateByPrimaryKeySelective" parameterType="com.future.backend.entity.BaseUser">
     update base_user
     <set>
       <if test="unicode != null">
@@ -308,7 +308,7 @@
     </set>
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.future.pojo.BaseUser">
+  <update id="updateByPrimaryKey" parameterType="com.future.backend.entity.BaseUser">
     update base_user
     set unicode = #{unicode,jdbcType=VARCHAR},
       user_name = #{userName,jdbcType=VARCHAR},

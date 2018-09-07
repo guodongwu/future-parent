@@ -7,12 +7,14 @@
       <module fileurl="file://$PROJECT_DIR$/future-service/futrue-service.iml" filepath="$PROJECT_DIR$/future-service/futrue-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-activemq/future-activemq.iml" filepath="$PROJECT_DIR$/future-activemq/future-activemq.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-backend-web/future-backend-web.iml" filepath="$PROJECT_DIR$/future-backend-web/future-backend-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/future-backstage/future-backstage.iml" filepath="$PROJECT_DIR$/future-backstage/future-backstage.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-dao/future-dao.iml" filepath="$PROJECT_DIR$/future-dao/future-dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-jbs/future-jbs.iml" filepath="$PROJECT_DIR$/future-jbs/future-jbs.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-model/future-model.iml" filepath="$PROJECT_DIR$/future-model/future-model.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-parent.iml" filepath="$PROJECT_DIR$/future-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-service/future-service.iml" filepath="$PROJECT_DIR$/future-service/future-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-service-api/future-service-api.iml" filepath="$PROJECT_DIR$/future-service-api/future-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/future-struts2/future-struts2.iml" filepath="$PROJECT_DIR$/future-struts2/future-struts2.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-study/future-study.iml" filepath="$PROJECT_DIR$/future-study/future-study.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-thread/future-thread.iml" filepath="$PROJECT_DIR$/future-thread/future-thread.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-utils/future-utils.iml" filepath="$PROJECT_DIR$/future-utils/future-utils.iml" />

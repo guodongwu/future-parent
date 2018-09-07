@@ -1,6 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.future.pojo.BaseUser" %><%--
+<%@ page import="com.future.backend.entity.BaseUser" %><%--
   Created by IntelliJ IDEA.
   User: wu
   Date: 2018/8/30
@@ -99,11 +99,11 @@
     <!--设置tag的 variable-class
     <variable>
             <name-from-attribute>var</name-from-attribute>
-            <variable-class>com.future.pojo.BaseUser</variable-class>
+            <variable-class>BaseUser</variable-class>
             <scope>NESTED</scope>
     </variable>
     -->
-    <%--<jsp:useBean id="user" class="com.future.pojo.BaseUser" />--%>
+    <%--<jsp:useBean id="user" class="BaseUser" />--%>
     <table class="table">
         <tr>用户名<td></td><td>电话</td></tr>
         <my:iterate var="user" items="<%=list%>">

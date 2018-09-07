@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.future.mapper.BaseUserRoleMapper">
-  <resultMap id="BaseResultMap" type="com.future.pojo.BaseUserRole">
+<mapper namespace="com.future.backend.mapper.BaseUserRoleMapper">
+  <resultMap id="BaseResultMap" type="com.future.backend.entity.BaseUserRole">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="role_id" jdbcType="INTEGER" property="roleId" />
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
@@ -24,7 +24,7 @@
     delete from base_user_role
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.future.pojo.BaseUserRole">
+  <insert id="insert" parameterType="com.future.backend.entity.BaseUserRole">
     insert into base_user_role (id, role_id, role_name, 
       user_id, user_name, status, 
       add_time, add_ip)
@@ -32,7 +32,7 @@
       #{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, 
       #{addTime,jdbcType=TIMESTAMP}, #{addIp,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.future.pojo.BaseUserRole">
+  <insert id="insertSelective" parameterType="com.future.backend.entity.BaseUserRole">
     insert into base_user_role
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.future.pojo.BaseUserRole">
+  <update id="updateByPrimaryKeySelective" parameterType="com.future.backend.entity.BaseUserRole">
     update base_user_role
     <set>
       <if test="roleId != null">
@@ -114,7 +114,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.future.pojo.BaseUserRole">
+  <update id="updateByPrimaryKey" parameterType="com.future.backend.entity.BaseUserRole">
     update base_user_role
     set role_id = #{roleId,jdbcType=INTEGER},
       role_name = #{roleName,jdbcType=VARCHAR},

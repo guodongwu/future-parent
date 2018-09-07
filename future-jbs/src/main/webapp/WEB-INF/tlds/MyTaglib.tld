@@ -67,7 +67,7 @@
         </attribute>
         <variable>
             <name-from-attribute>var</name-from-attribute>
-            <variable-class>com.future.pojo.BaseUser</variable-class>
+            <variable-class>com.future.backend.entity.BaseUser</variable-class>
             <scope>NESTED</scope>
         </variable>
     </tag>

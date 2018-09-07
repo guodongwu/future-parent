@@ -2,9 +2,9 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
-    <bean id="baseAreaService" class="com.future.service.impl.BaseAreaServiceImpl"/>
+    <bean id="baseAreaService" class="com.future.backend.service.impl.BaseAreaServiceImpl"/>
     <dubbo:application name="dubbo_provider"/>
     <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
     <dubbo:protocol name="dubbo"   port="20880"/>
-    <dubbo:service interface="com.future.service.BaseAreaService" ref="baseAreaService" timeout="20000"/>
+    <dubbo:service interface="com.future.backend.service.BaseAreaService" ref="baseAreaService" timeout="20000"/>
 </beans>

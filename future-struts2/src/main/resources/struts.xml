@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="struts" extends="struts-default">
+    <action name="login" class="com.study.struts2.action.LoginAction" method="login">
+       <result name="input">/login.jsp</result>
+        <result name="success">/index.jsp</result>
+        <result name="error">/error.jsp</result>
+    </action>
+        <action name="login2" class="com.study.struts2.action.LoginAction" method="login2">
+            <result name="input">/login.jsp</result>
+            <result name="success">/index.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+    <action name="logout" class="com.study.struts2.action.LoginAction" method="logout" >
+        <result name="success" type="redirect">/login.jsp</result>
+    </action>
+    <action name="books" class="com.study.struts2.action.BookListAction">
+        <result name="login" >/login.jsp</result>
+        <result name="success">/showBook.jsp</result>
+    </action>
+    </package>
+    <constant name="struts.ui.theme" value="simple"/>
+    <constant name="struts.action.excludePattern" value="/static/.*?"/>
+</struts>

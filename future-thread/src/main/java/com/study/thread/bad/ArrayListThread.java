@@ -25,6 +25,10 @@ public class ArrayListThread {
         t2.start();
         t1.join();
         t2.join();
+
         System.out.println(al.size());
+        Error err=ArrayListThread.class.getAnnotation(Error.class);
+        System.out.println(err);
+        System.out.println(err.message());
     }
 }

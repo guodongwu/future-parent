@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.future.mapper.BasePermissionMapper">
-  <resultMap id="BaseResultMap" type="com.future.pojo.BasePermission">
+<mapper namespace="com.future.backend.mapper.BasePermissionMapper">
+  <resultMap id="BaseResultMap" type="com.future.backend.entity.BasePermission">
     <id column="permission_id" jdbcType="INTEGER" property="permissionId" />
     <result column="permission_name" jdbcType="VARCHAR" property="permissionName" />
     <result column="permission_desc" jdbcType="VARCHAR" property="permissionDesc" />
@@ -22,7 +22,7 @@
     delete from base_permission
     where permission_id = #{permissionId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.future.pojo.BasePermission">
+  <insert id="insert" parameterType="com.future.backend.entity.BasePermission">
     insert into base_permission (permission_id, permission_name, permission_desc, 
       parent_id, sort_order, status
       )
@@ -30,7 +30,7 @@
       #{parentId,jdbcType=INTEGER}, #{sortOrder,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.future.pojo.BasePermission">
+  <insert id="insertSelective" parameterType="com.future.backend.entity.BasePermission">
     insert into base_permission
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="permissionId != null">
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.future.pojo.BasePermission">
+  <update id="updateByPrimaryKeySelective" parameterType="com.future.backend.entity.BasePermission">
     update base_permission
     <set>
       <if test="permissionName != null">
@@ -94,7 +94,7 @@
     </set>
     where permission_id = #{permissionId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.future.pojo.BasePermission">
+  <update id="updateByPrimaryKey" parameterType="com.future.backend.entity.BasePermission">
     update base_permission
     set permission_name = #{permissionName,jdbcType=VARCHAR},
       permission_desc = #{permissionDesc,jdbcType=VARCHAR},

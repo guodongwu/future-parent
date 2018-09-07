@@ -5,12 +5,16 @@
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/future-backend-web" />
+    <file type="web" url="file://$PROJECT_DIR$/future-backstage" />
     <file type="web" url="file://$PROJECT_DIR$/future-jbs" />
+    <file type="web" url="file://$PROJECT_DIR$/future-struts2" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/future-model/pom.xml" />
+        <option value="$PROJECT_DIR$/future-jbs/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

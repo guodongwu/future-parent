@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.future.mapper.BaseRolePermissionMapper">
-  <resultMap id="BaseResultMap" type="com.future.pojo.BaseRolePermission">
+<mapper namespace="com.future.backend.mapper.BaseRolePermissionMapper">
+  <resultMap id="BaseResultMap" type="com.future.backend.entity.BaseRolePermission">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="role_id" jdbcType="INTEGER" property="roleId" />
     <result column="permission_id" jdbcType="VARCHAR" property="permissionId" />
@@ -23,7 +23,7 @@
     delete from base_role_permission
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.future.pojo.BaseRolePermission">
+  <insert id="insert" parameterType="com.future.backend.entity.BaseRolePermission">
     insert into base_role_permission (id, role_id, permission_id, 
       sort_order, status, add_time, 
       add_ip)
@@ -31,7 +31,7 @@
       #{sortOrder,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, #{addTime,jdbcType=TIMESTAMP}, 
       #{addIp,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.future.pojo.BaseRolePermission">
+  <insert id="insertSelective" parameterType="com.future.backend.entity.BaseRolePermission">
     insert into base_role_permission
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.future.pojo.BaseRolePermission">
+  <update id="updateByPrimaryKeySelective" parameterType="com.future.backend.entity.BaseRolePermission">
     update base_role_permission
     <set>
       <if test="roleId != null">
@@ -104,7 +104,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.future.pojo.BaseRolePermission">
+  <update id="updateByPrimaryKey" parameterType="com.future.backend.entity.BaseRolePermission">
     update base_role_permission
     set role_id = #{roleId,jdbcType=INTEGER},
       permission_id = #{permissionId,jdbcType=VARCHAR},

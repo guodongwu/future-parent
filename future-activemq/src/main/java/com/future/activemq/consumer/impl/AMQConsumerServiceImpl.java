@@ -1,10 +1,9 @@
 package com.future.activemq.consumer.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.future.service.activemq.consumer.AMQConsumerService;
+import com.future.activemq.consumer.AMQConsumerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.jms.JmsException;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 

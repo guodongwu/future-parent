@@ -18,6 +18,8 @@
       <module>future-study</module>
       <module>future-jbs</module>
       <module>future-thread</module>
+      <module>future-struts2</module>
+      <module>future-backstage</module>
   </modules>
   <packaging>pom</packaging>
   <name>future-parent</name>
@@ -30,7 +32,9 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <spring-version>4.3.18.RELEASE</spring-version>
     <mybatis-version>3.4.6</mybatis-version>
-    <generator.project.root>D:\eclipse-workspace\future-parent</generator.project.root>
+   <!-- <mysql-version>5.1.39</mysql-version>-->
+    <mysql-version>8.0.12</mysql-version>
+    <generator.project.root>D:\git\future-parent</generator.project.root>
   </properties>
 <dependencyManagement>
   <dependencies>
@@ -155,7 +159,7 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.39</version>
+      <version>${mysql-version}</version>
     </dependency>
     <dependency>
       <groupId>com.alibaba</groupId>
@@ -251,6 +255,11 @@
       <version>LATEST</version>
     </dependency>
     <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+    </dependency>
+    <dependency>
       <groupId>com.squareup.okhttp3</groupId>
       <artifactId>okhttp</artifactId>
       <version>3.11.0</version>
@@ -285,6 +294,14 @@
       <artifactId>javaee-web-api</artifactId>
       <version>8.0</version>
     </dependency>
+
+    <!--struts2-->
+    <dependency>
+      <groupId>org.apache.struts</groupId>
+      <artifactId>struts2-core</artifactId>
+      <version>2.5.16</version>
+    </dependency>
+
   </dependencies>
 </dependencyManagement>
   <build>

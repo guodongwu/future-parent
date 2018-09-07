@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="future-struts2:war">
+    <output-path>$PROJECT_DIR$/future-struts2/target</output-path>
+    <root id="archive" name="future-struts2.war">
+      <element id="artifact" artifact-name="future-struts2:war exploded" />
+    </root>
+  </artifact>
+</component>

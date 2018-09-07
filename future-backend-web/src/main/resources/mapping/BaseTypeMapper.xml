@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.future.mapper.BaseTypeMapper">
-  <resultMap id="BaseResultMap" type="com.future.pojo.BaseType">
+<mapper namespace="com.future.backend.mapper.BaseTypeMapper">
+  <resultMap id="BaseResultMap" type="com.future.backend.entity.BaseType">
     <id column="type_id" jdbcType="VARCHAR" property="typeId" />
     <result column="type_name" jdbcType="VARCHAR" property="typeName" />
     <result column="descn" jdbcType="VARCHAR" property="descn" />
@@ -22,7 +22,7 @@
     delete from base_type
     where type_id = #{typeId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.future.pojo.BaseType">
+  <insert id="insert" parameterType="com.future.backend.entity.BaseType">
     insert into base_type (type_id, type_name, descn, 
       parent_id, sort_order, status
       )
@@ -30,7 +30,7 @@
       #{parentId,jdbcType=VARCHAR}, #{sortOrder,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.future.pojo.BaseType">
+  <insert id="insertSelective" parameterType="com.future.backend.entity.BaseType">
     insert into base_type
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="typeId != null">
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.future.pojo.BaseType">
+  <update id="updateByPrimaryKeySelective" parameterType="com.future.backend.entity.BaseType">
     update base_type
     <set>
       <if test="typeName != null">
@@ -94,7 +94,7 @@
     </set>
     where type_id = #{typeId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.future.pojo.BaseType">
+  <update id="updateByPrimaryKey" parameterType="com.future.backend.entity.BaseType">
     update base_type
     set type_name = #{typeName,jdbcType=VARCHAR},
       descn = #{descn,jdbcType=VARCHAR},
