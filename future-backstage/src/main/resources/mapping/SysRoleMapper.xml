@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.future.backstage.mapper.SysRoleMapper">
+  <resultMap id="BaseResultMap" type="com.future.backstage.entity.SysRole">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="corporationId" jdbcType="INTEGER" property="corporationid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+    <result column="createDate" jdbcType="TIMESTAMP" property="createdate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, corporationId, name, memo, createDate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_role
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_role
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.future.backstage.entity.SysRole">
+    insert into sys_role (id, corporationId, name, 
+      memo, createDate)
+    values (#{id,jdbcType=INTEGER}, #{corporationid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{memo,jdbcType=VARCHAR}, #{createdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.future.backstage.entity.SysRole">
+    insert into sys_role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="corporationid != null">
+        corporationId,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="memo != null">
+        memo,
+      </if>
+      <if test="createdate != null">
+        createDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="corporationid != null">
+        #{corporationid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.future.backstage.entity.SysRole">
+    update sys_role
+    <set>
+      <if test="corporationid != null">
+        corporationId = #{corporationid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        createDate = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.future.backstage.entity.SysRole">
+    update sys_role
+    set corporationId = #{corporationid,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      memo = #{memo,jdbcType=VARCHAR},
+      createDate = #{createdate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
