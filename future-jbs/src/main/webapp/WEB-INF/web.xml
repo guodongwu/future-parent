@@ -57,7 +57,30 @@
         <servlet-name>dbInfo</servlet-name>
         <url-pattern>/dbInfo</url-pattern>
     </servlet-mapping>
-    
+    <servlet>
+        <servlet-name>userLogin</servlet-name>
+        <servlet-class>com.study.servlet.create.UserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>userLogin</servlet-name>
+        <url-pattern>/user/login</url-pattern>
+    </servlet-mapping>
+    <filter>
+        <filter-name>filter</filter-name>
+        <filter-class>com.study.servlet.filter.JwtFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>filter</filter-name>
+        <servlet-name>api</servlet-name>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>api</servlet-name>
+        <servlet-class>com.study.servlet.create.ApiServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>api</servlet-name>
+        <url-pattern>/api/role/*</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>error</servlet-name>
         <servlet-class>com.study.servlet.err.ErrorHandler</servlet-class>

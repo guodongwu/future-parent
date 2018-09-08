@@ -15,11 +15,11 @@
     <module>future-utils</module>
     <module>future-service-api</module>
     <module>future-activemq</module>
-      <module>future-study</module>
-      <module>future-jbs</module>
-      <module>future-thread</module>
-      <module>future-struts2</module>
-      <module>future-backstage</module>
+    <module>future-study</module>
+    <module>future-jbs</module>
+    <module>future-thread</module>
+    <module>future-struts2</module>
+    <module>future-backstage</module>
   </modules>
   <packaging>pom</packaging>
   <name>future-parent</name>
@@ -301,6 +301,10 @@
       <artifactId>struts2-core</artifactId>
       <version>2.5.16</version>
     </dependency>
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt</artifactId>
+      <version>0.9.1</version> </dependency>
 
   </dependencies>
 </dependencyManagement>

@@ -89,6 +89,7 @@
           <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.10" />
           <element id="library" level="project" name="Maven: com.squareup.okhttp3:okhttp:3.11.0" />
           <element id="library" level="project" name="Maven: com.squareup.okio:okio:1.14.0" />
+          <element id="library" level="project" name="Maven: io.jsonwebtoken:jjwt:0.9.1" />
           <element id="archive" name="future-activemq-1.0-SNAPSHOT.jar">
             <element id="module-output" name="future-activemq" />
           </element>
