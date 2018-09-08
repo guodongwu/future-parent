@@ -21,23 +21,9 @@ import javax.jms.Destination;
  */
 @Controller
 public class HomeController {
-    @Autowired
-    private BaseAreaService baseAreaService;
 
-    @Autowired
-    private BaseUserService baseUserService;
-    @Autowired
-    private AMQProducerService producerService;
-    @Autowired
-    @Qualifier(value = "destinationQueue")
-    private Destination destination;
     @GetMapping("/index")
-    public String  index(Model model,@RequestParam(defaultValue = "0",name = "parentId",required = false)Integer parentId,
-            @RequestParam(defaultValue = "1",name = "pageNum",required = false) Integer pageNum,
-                         @RequestParam(defaultValue = "10",name = "pageSize",required = false) Integer pageSize){
-        PageInfo<BaseArea> list= baseAreaService.getAllByParentId(parentId,pageNum,pageSize);
-        model.addAttribute("page",list);
-        model.addAttribute("parentId",parentId);
+    public String  index(){
         return "index";
     }
 

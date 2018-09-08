@@ -5,6 +5,8 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <context:component-scan base-package="com.future.backend"/>
+    <context:component-scan base-package="com.future.jedis"/>
+    <context:component-scan base-package="com.future.activemq"/>
     <import resource="classpath:spring/spring-druid.xml"/>
     <!--暂不使用dubbo-->
 <!--    <import resource="classpath:spring/dubbo-consumer.xml"/>-->
