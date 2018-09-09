@@ -1,5 +1,5 @@
 <#assign ctx=request.getContextPath()>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>登录</title>
 
@@ -13,6 +13,7 @@
     <link href="https://cdn.bootcss.com/limonte-sweetalert2/7.21.1/sweetalert2.min.css" rel="stylesheet">
 
     <link href="${ctx}/static/css/login.css" rel="stylesheet"/>
+    <script src="${ctx}/static/js/user/storage.js"></script>
     <script src="${ctx}/static/js/user/user.js"></script>
 <body>
 <div class="container">
@@ -42,7 +43,6 @@
             </div>
         </div>
     </div>
-
 </div>
 </body>
 </html>

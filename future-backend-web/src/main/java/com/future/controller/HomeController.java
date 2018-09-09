@@ -1,6 +1,8 @@
 package com.future.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.future.jedis.RedisUtil;
 import com.future.backend.entity.BaseArea;
 import com.future.backend.entity.BaseUser;
@@ -9,6 +11,7 @@ import com.future.backend.service.BaseUserService;
 import com.future.activemq.producer.AMQProducerService;
 import com.future.utils.CapchaHelper;
 import com.future.utils.JsonResult;
+import com.future.utils.JwtUtil;
 import com.future.utils.Md5Utils;
 import com.future.validator.ValidatorLogin;
 import com.future.validator.ValidatorRegister;

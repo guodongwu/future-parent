@@ -1,13 +1,16 @@
 package com.future.utils;
+
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTCreator;
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.Claim;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtBuilder;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import org.apache.commons.lang3.time.DateUtils;
 
-import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,63 +19,32 @@ import java.util.Map;
  * Created by wu on 2018/9/8.
  */
 public class JwtUtil {
-    public SecretKey generalKey(){
-        String stringKey=Constant.JWT_SECRET;
-        byte[] encodeKey= org.apache.commons.codec.binary.Base64.decodeBase64(stringKey);
+    public static <T> String sign(T object,long maxAge) throws JsonProcessingException {
+        Algorithm algorithm=Algorithm.HMAC256(Constant.JWT_SECRET);
+        ObjectMapper mapper=new ObjectMapper();
+        String json=mapper.writeValueAsString(object);
+        JWTCreator.Builder signer= JWT.create()
+                .withClaim(Constant.PAYLOAD,json);
+        long expire=System.currentTimeMillis()+maxAge;
+        signer.withExpiresAt(new Date(expire));
+        return signer.sign(algorithm);
 
-        SecretKey key=new SecretKeySpec(encodeKey,0,encodeKey.length,"AES");
-        return key;
+
+    }
+    public  static <T> T unsign(String token,Class<T> classT) throws IOException {
+        Algorithm algorithm=Algorithm.HMAC256(Constant.JWT_SECRET);
+        JWTVerifier verifier=JWT.require(algorithm).build();
+        DecodedJWT jwt=verifier.verify(token);
+        Claim claim=jwt.getClaim(Constant.PAYLOAD);
+        return new ObjectMapper().readValue(claim.asString(),classT);
+
     }
 
-    /**
-     * 创建token
-     * @param map
-     * @param id
-     * @param isuser
-     * @param subject
-     * @param ttlMills
-     * @return
-     */
-    public String createJWT(Map map,String id,String isuser,String
-            subject,long ttlMills){
-        SignatureAlgorithm signatureAlgorithm=SignatureAlgorithm.HS256;
-        long nowMills=System.currentTimeMillis();
-        Date now=new Date(nowMills);
-       SecretKey key=generalKey();
-        JwtBuilder builder= Jwts.builder()
-                .setClaims(map)
-               .setId(id)
-                .setIssuedAt(now)
-                .setIssuer(isuser)
-                .setSubject(subject)
-                .signWith(signatureAlgorithm,key);
+    public static void main(String[] args) throws IOException {
+       String token= JwtUtil.sign(new Integer(1),10000);
+        System.out.println(token);
 
-        if(ttlMills>=0){
-            long expMills=nowMills+ttlMills;
-            Date exp=new Date(expMills);
-            builder.setExpiration(exp);
-        }
-        return builder.compact();
-    }
-
-    public Claims parseJWT(String jwt){
-        SecretKey key=generalKey();
-        Claims claims=Jwts.parser()
-                .setSigningKey(key)
-                .parseClaimsJws(jwt).getBody();
-        return claims;
-    }
-
-    public static void main(String[] args) throws JsonProcessingException {
-        Map map=new HashMap();
-        map.put("name","w");
-        map.put("phone","123456");
-        String sub= new ObjectMapper().writeValueAsString(map);
-        JwtUtil jwtUtil=new JwtUtil();
-       String jwt= jwtUtil.createJWT(map,Constant.JWT_ID,"Anno",sub,Constant.JWT_TTL);
-        System.out.println(jwt);
-        Claims claims=jwtUtil.parseJWT(jwt);
-        System.out.println(claims.getId());
-        System.out.println(claims.getSubject());
+        Integer i=JwtUtil.unsign(token,Integer.class);
+        System.out.println(i);
     }
 }

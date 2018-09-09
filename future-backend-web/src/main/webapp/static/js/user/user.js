@@ -18,6 +18,8 @@ var user={
                         timer: 2000
                     }).then(
                         function () {
+                            //添加token
+                            storage.set("token",result.data)
                             location.href="index";
                         });
 
