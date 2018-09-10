@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx" 
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd 
+       http://www.springframework.org/schema/context 
+       http://www.springframework.org/schema/context/spring-context.xsd 
+       http://www.springframework.org/schema/tx 
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- 配置扫描的包 -->
+    <context:component-scan base-package="com.springmvc.*" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository" />
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Component" />
+        <!--不扫描service注解 解决事物不起作用 防止service重复初始化 -->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" />
+   </context:component-scan>
+
+    <!-- 注册HandlerMapper、HandlerAdapter两个映射类 -->
+    <!-- 解决中文编码 -->
+    <mvc:annotation-driven>
+     <mvc:message-converters>
+          <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+              <property name="supportedMediaTypes">
+                  <list>
+                      <value>text/plain;charset=UTF-8</value>    
+                      <value>text/html;charset=UTF-8</value>    
+                      <value>application/json;charset=UTF-8</value> 
+                      <value>application/x-www-form-urlencoded;charset=UTF-8</value>                                    
+                  </list>
+              </property>
+          </bean>
+      </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <!-- 访问静态资源处理 -->
+    <mvc:default-servlet-handler />
+    
+    <!-- 视图解析器，将ModelAndView及字符串解析为具体的页面 -->
+    <bean
+        class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/view/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+    <!-- 自定义全局异常处理 -->
+    <bean class="com.springmvc.exception.MyExceptionResolver"></bean>
+
+    <!--定义异常处理页面-->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <!-- 发生 HttpSessionRequiredException自动跳转到WEB-INF/view/error.jsp页面 -->
+                <prop key="org.springframework.web.HttpSessionRequiredException">error</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <!-- configure jsonConverters  -->
+    <!-- Ajax请求时编码 -->
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="jsonHttpMessageConverter" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="jsonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>                 
+                <value>application/json;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+    
+    <!-- 跨域访问 -->
+    <mvc:cors>
+         <mvc:mapping path="/**" />
+    </mvc:cors>
+
+    <!-- 拦截器 -->
+    <mvc:interceptors>
+        <!-- 多个拦截器，顺序执行 -->
+        <mvc:interceptor>
+            <!-- 拦截所有路径 注意** -->
+            <mvc:mapping path="/**"/>
+            <!-- 排除login路径 注意** -->
+            <mvc:exclude-mapping path="/login/**"/>
+            <!-- 排除upload路径 注意** -->
+            <mvc:exclude-mapping path="/upload/**"/>
+            <bean class="com.springmvc.interceptor.LoginInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <!-- 
+    
+    <mvc:cors>
+
+    <mvc:mapping path="/api/**"
+        allowed-origins="http://domain1.com, http://domain2.com"
+        allowed-methods="GET, PUT"
+        allowed-headers="header1, header2, header3"
+        exposed-headers="header1, header2" allow-credentials="false"
+        max-age="123" />
+
+    <mvc:mapping path="/resources/**"
+        allowed-origins="http://domain1.com" />
+
+    </mvc:cors>
+    
+     -->
+   
+</beans>
