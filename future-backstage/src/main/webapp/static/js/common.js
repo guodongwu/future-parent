@@ -86,7 +86,7 @@ Date.prototype.Format = function (fmt) {
  * @returns {*}
  * @constructor
  */
-function vDateFormat(date,format) {
+function DateFormat(date,format) {
     if (date != null) {
         if (date instanceof Date) {
             return date.Format(format);
@@ -99,21 +99,21 @@ function vDateFormat(date,format) {
  * 存储授权信息
  * @param v
  */
-function vSetAuthenticationStorage(v) {
+function SetAuthStorage(v) {
     sessionStorage.setItem("jwt",v);
 }
 
 /**
  * 获取授权信息
  */
-function vGetAuthenticationStorage() {
+function GetAuthStorage() {
     return sessionStorage.getItem("jwt");
 }
 
 /**
  * 获取首页vue
  */
-function vMainVue() {
+function MainVue() {
     return window.parent.app;
 }
 
@@ -121,7 +121,7 @@ function vMainVue() {
  * 打开菜单
  * @param menuName
  */
-function vOpenMenuItem(menuName){
+function OpenMenuItem(menuName){
     window.parent.openMenuItem(menuName);
 }
 
@@ -129,7 +129,7 @@ function vOpenMenuItem(menuName){
  * 在新窗口打开
  * @param url
  */
-function vOpenWindow(url,config){
+function OpenWindow(url,config){
     window.open(url,"_blank","top=10,left=10,width=1024,height=768,titlebar=no,menubar=no,scrollbars=no,toolbar=no,status=no");
 }
 
@@ -139,7 +139,7 @@ function vOpenWindow(url,config){
  * @param url
  * @param title
  */
-function vPopWindowShow(action,url,title,config){
+function PopWindowShow(action,url,title,config){
     window.parent.popShow(action,url,title,JSON.stringify(config));
 }
 
@@ -147,7 +147,7 @@ function vPopWindowShow(action,url,title,config){
  * 全局窗体关闭
  * @param result
  */
-function vPopWindowsColse(parameter){
+function PopWindowsColse(parameter){
     window.parent.popClose(parameter);
 }
 
@@ -155,7 +155,7 @@ function vPopWindowsColse(parameter){
  * 获取全局数据
  * @constructor
  */
-function VPopConfig(){
+function PopConfig(){
    return JSON.parse(sessionStorage.getItem("popConfig"));
 }
 
@@ -167,20 +167,6 @@ function decodeUnicode(str) {
     return unescape(str.replace(/\\u/g, "%u"));
 }
 
-/**
- * 验证手机号码
- * @param phone
- * @returns {boolean}
- */
-function validatePhone(phone){
-    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(16[0-9]{1})|(17[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
-    if(!myreg.test(phone)){
-        return false;
-    }
-    else{
-        return true;
-    }
-}
 
 /**
  * 输出日志
@@ -202,7 +188,7 @@ function log(msg,target){
  * 整页加载 等待效果
  * @param sleeping
  */
-function vSpin(vue,sleeping){
+function Spin(vue,sleeping){
     vue.$Spin.show();
     if(!sleeping){
         sleeping=2000;
@@ -219,7 +205,7 @@ function vSpin(vue,sleeping){
  * @param process  延迟执行的方法
  * @param end      结束执行方法
  */
-function vDelay(sleeping,start,process,end) {
+function Delay(sleeping,start,process,end) {
     start && start();
     setTimeout(() => {
         process && process();
@@ -236,12 +222,12 @@ function vDelay(sleeping,start,process,end) {
  * @param type    提示类型
  *
  */
-function valert(vue,content,title,type) {
+function Alert(vue,content,title,type) {
     /**
      * vue 默认子页面弹出
      * 改成在main页面弹出
      */
-    vue=vMainVue()||vue;
+    vue=MainVue()||vue;
     let config={
         title: title||"信息提示",
         content: content
@@ -279,12 +265,12 @@ function valert(vue,content,title,type) {
  * @param vue
  * @param content
  */
-function vconfirm(vue,content,okEvent,cancelEvent){
+function Confirm(vue,content,okEvent,cancelEvent){
     /**
      * vue 默认子页面弹出
      * 改成在main页面弹出
      */
-    vue=vMainVue()||vue;
+    vue=MainVue()||vue;
     vue.$Modal.confirm({
         title: '确认提示框',
         content: content,
@@ -317,8 +303,8 @@ function vconfirm(vue,content,okEvent,cancelEvent){
  * @param type
  * @param onClose 关闭时间
  */
-function vnotice(vue,name,desc,render,title,top,duration,type,onClose){
-    vue=vMainVue()||vue;
+function Notice(vue,name,desc,render,title,top,duration,type,onClose){
+    vue=MainVue()||vue;
     vue.$Notice.config({
         top: top||85
     });
@@ -360,8 +346,8 @@ function vnotice(vue,name,desc,render,title,top,duration,type,onClose){
  * @param vue
  * @param name
  */
-function vnoticeClose(vue,name){
-    vue=vMainVue()||vue;
+function NoticeClose(vue,name){
+    vue=MainVue()||vue;
     vue.$Notice.close(name);
 }
 
@@ -373,8 +359,8 @@ function vnoticeClose(vue,name){
  * @param type    类型
  * @param duration
  */
-function vtoast(vue,content,type,duration){
-    vue=vMainVue()||vue;
+function Toast(vue,content,type,duration){
+    vue=MainVue()||vue;
     let config={
         content: content,
         duration: duration||4,
@@ -415,7 +401,7 @@ function vtoast(vue,content,type,duration){
  * @param errorEvent
  * @param async 默认异步
  */
-function vajaxPost(url,data,dataTypeJson,successEvent,beforeSendEvent,completeEvnent,errorEvent,notAsync){
+function AjaxPost(url,data,dataTypeJson,successEvent,beforeSendEvent,completeEvnent,errorEvent,notAsync){
 
     if($==null){ alert("$不是对象"); return ; }
 
