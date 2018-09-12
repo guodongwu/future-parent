@@ -66,10 +66,10 @@
 
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/WEB-INF/views/**"/>
-            <mvc:mapping path="/"/>
+            <mvc:mapping path="/**"/>
+<!--            <mvc:mapping path="/"/>
             <mvc:mapping path="/index"/>
-            <mvc:mapping path="/login"/>
+            <mvc:mapping path="/login"/>-->
             <bean class="com.future.interceptor.ValidateInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
