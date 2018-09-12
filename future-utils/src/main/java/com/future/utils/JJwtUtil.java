@@ -11,11 +11,26 @@ import javax.crypto.spec.SecretKeySpec;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by wu on 2018/9/8.
  */
 public class JJwtUtil {
+    private static Lock lock=new ReentrantLock();
+    private static JJwtUtil jJwtUtil=null;
+    private JJwtUtil(){
+    }
+    public static JJwtUtil getInstance(){
+        lock.lock();
+        if(jJwtUtil==null){
+            jJwtUtil=new JJwtUtil();
+        }
+        lock.unlock();
+        return jJwtUtil;
+    }
+
     public SecretKey generalKey(){
         String stringKey=Constant.JWT_SECRET;
         byte[] encodeKey= org.apache.commons.codec.binary.Base64.decodeBase64(stringKey);

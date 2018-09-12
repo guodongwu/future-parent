@@ -30,6 +30,15 @@ public class JsonResult {
         this.data = data;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public  String url;
     public  String message;
     public  Object data;
     public  JsonResult(){}
