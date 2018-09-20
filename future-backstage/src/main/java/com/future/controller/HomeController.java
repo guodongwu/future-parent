@@ -22,5 +22,9 @@ public class HomeController {
         request.getSession().removeAttribute(name);
         return "remove";
     }
+    @GetMapping("/main")
+    public  String main(){
+        return "main";
+    }
 
 }
