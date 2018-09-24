@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="future-solr:war">
+    <output-path>$PROJECT_DIR$/future-solr/target</output-path>
+    <root id="archive" name="future-solr.war">
+      <element id="artifact" artifact-name="future-solr:war exploded" />
+    </root>
+  </artifact>
+</component>

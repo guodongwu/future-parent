@@ -14,6 +14,7 @@
       <module fileurl="file://$PROJECT_DIR$/future-parent.iml" filepath="$PROJECT_DIR$/future-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-service/future-service.iml" filepath="$PROJECT_DIR$/future-service/future-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-service-api/future-service-api.iml" filepath="$PROJECT_DIR$/future-service-api/future-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/future-solr/future-solr.iml" filepath="$PROJECT_DIR$/future-solr/future-solr.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-struts2/future-struts2.iml" filepath="$PROJECT_DIR$/future-struts2/future-struts2.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-study/future-study.iml" filepath="$PROJECT_DIR$/future-study/future-study.iml" />
       <module fileurl="file://$PROJECT_DIR$/future-thread/future-thread.iml" filepath="$PROJECT_DIR$/future-thread/future-thread.iml" />

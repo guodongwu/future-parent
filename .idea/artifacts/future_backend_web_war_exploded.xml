@@ -37,7 +37,7 @@
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons:1.13.8.RELEASE" />
           <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.25" />
           <element id="library" level="project" name="Maven: org.springframework:spring-oxm:4.3.12.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-context-support:4.3.12.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context-support:4.3.18.RELEASE" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.12" />
           <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:2.6.0" />
           <element id="library" level="project" name="Maven: com.alibaba:druid:1.1.10" />

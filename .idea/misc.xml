@@ -7,6 +7,7 @@
     <file type="web" url="file://$PROJECT_DIR$/future-backend-web" />
     <file type="web" url="file://$PROJECT_DIR$/future-backstage" />
     <file type="web" url="file://$PROJECT_DIR$/future-jbs" />
+    <file type="web" url="file://$PROJECT_DIR$/future-solr" />
     <file type="web" url="file://$PROJECT_DIR$/future-struts2" />
   </component>
   <component name="JavaScriptSettings">
