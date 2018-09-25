@@ -14,7 +14,7 @@
       <entry name="!?*.aj" />
     </wildcardResourcePatterns>
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="false">
+      <profile default="true" name="Default" enabled="true">
         <processorPath useClasspath="true" />
       </profile>
       <profile default="false" name="Maven default annotation processors profile" enabled="true">
@@ -31,6 +31,7 @@
         <module name="future-dao" />
         <module name="future-jbs" />
         <module name="future-model" />
+        <module name="future-quartz" />
         <module name="future-service" />
         <module name="future-service-api" />
         <module name="future-solr" />
@@ -52,6 +53,7 @@
       <module name="future-jbs" target="1.8" />
       <module name="future-model" target="1.8" />
       <module name="future-parent" target="1.8" />
+      <module name="future-quartz" target="1.8" />
       <module name="future-sboot" target="1.8" />
       <module name="future-service" target="1.8" />
       <module name="future-service-api" target="1.8" />
