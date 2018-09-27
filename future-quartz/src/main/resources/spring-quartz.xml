@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="firstJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="name" value="f_job" />
+        <property name="group" value="f_group"/>
+        <property name="jobClass" value="com.future.quartz.spring.quartz.FirstJob"/>
+        <property name="durability" value="true"/>
+        <property name="applicationContextJobDataKey" value="applicationContext"/>
+
+    </bean>
+    <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="name" value="f_trigger"/>
+        <property name="group" value="f_trigger_group"/>
+        <property name="jobDetail" ref="firstJob"/>
+        <property name="cronExpression" value="0/1 * * * * ?"/>
+    </bean>
+    <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="cronTrigger"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="jdbcscheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="applicationContextSchedulerContextKey" value="applicationContextKey"/>
+        <property name="configLocation" value="classpath:quartz.properties"/>
+    </bean>
+
+</beans>
