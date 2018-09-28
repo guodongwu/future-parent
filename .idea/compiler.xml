@@ -29,6 +29,7 @@
         <module name="future-backend-web" />
         <module name="future-backstage" />
         <module name="future-dao" />
+        <module name="future-fastdfs" />
         <module name="future-jbs" />
         <module name="future-model" />
         <module name="future-quartz" />
@@ -50,6 +51,7 @@
       <module name="future-backend-web" target="1.8" />
       <module name="future-backstage" target="1.8" />
       <module name="future-dao" target="1.8" />
+      <module name="future-fastdfs" target="1.8" />
       <module name="future-jbs" target="1.8" />
       <module name="future-model" target="1.8" />
       <module name="future-parent" target="1.8" />
