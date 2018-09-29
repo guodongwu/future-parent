@@ -69,5 +69,6 @@
     <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.5" level="project" />
     <orderEntry type="library" name="Maven: net.sf.dozer:dozer-spring:5.5.1" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.45" level="project" />
   </component>
 </module>

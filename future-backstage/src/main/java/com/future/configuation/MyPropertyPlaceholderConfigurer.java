@@ -9,6 +9,7 @@ import java.util.Properties;
 
 /**
  * Created by wu on 2018/9/16.
+ * 加密 properties
  */
 public class MyPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigurer {
    private  final  String key="dataSource";
