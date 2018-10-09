@@ -1,7 +1,5 @@
 package com.future.fastdfs.util;
 
-import com.sun.deploy.util.SessionState;
-import org.apache.commons.io.FileUtils;
 import org.csource.common.MyException;
 import org.csource.fastdfs.*;
 import org.slf4j.Logger;

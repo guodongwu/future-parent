@@ -16,6 +16,7 @@ import java.util.UUID;
 /**
  * Created by wu on 2018/9/28.
  */
+@SuppressWarnings("unchecked")
 @Slf4j
 public class TestFastDfs {
     public String  local="D:\\1.png";
