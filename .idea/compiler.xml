@@ -1,27 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <resourceExtensions />
-    <wildcardResourcePatterns>
-      <entry name="!?*.java" />
-      <entry name="!?*.form" />
-      <entry name="!?*.class" />
-      <entry name="!?*.groovy" />
-      <entry name="!?*.scala" />
-      <entry name="!?*.flex" />
-      <entry name="!?*.kt" />
-      <entry name="!?*.clj" />
-      <entry name="!?*.aj" />
-    </wildcardResourcePatterns>
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true">
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
         <module name="futrue-dao" />
         <module name="futrue-model" />
         <module name="futrue-service" />
@@ -43,23 +28,18 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="futrue-dao" target="1.8" />
-      <module name="futrue-model" target="1.8" />
-      <module name="futrue-service" target="1.8" />
       <module name="future-activemq" target="1.8" />
-      <module name="future-annotation" target="1.8" />
       <module name="future-backend-web" target="1.8" />
       <module name="future-backstage" target="1.8" />
       <module name="future-dao" target="1.8" />
       <module name="future-fastdfs" target="1.8" />
-      <module name="future-jbs" target="1.8" />
+      <module name="future-jbs" target="1.7" />
       <module name="future-model" target="1.8" />
       <module name="future-parent" target="1.8" />
       <module name="future-quartz" target="1.8" />
-      <module name="future-sboot" target="1.8" />
       <module name="future-service" target="1.8" />
-      <module name="future-service-api" target="1.8" />
-      <module name="future-solr" target="1.8" />
+      <module name="future-service-api" target="1.7" />
+      <module name="future-solr" target="1.7" />
       <module name="future-struts2" target="1.8" />
       <module name="future-study" target="1.8" />
       <module name="future-thread" target="1.8" />

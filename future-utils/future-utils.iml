@@ -1,32 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+<module type="JAVA_MODULE" version="4">
+  <component name="ExternalSystem" externalSystem="Maven" />
   <component name="FacetManager">
-    <facet type="JRebel" name="JRebel">
-      <configuration>
-        <option name="deleteUnindexed" value="false" />
-        <option name="httpAuthEnabled" value="false" />
-        <option name="httpPassword" />
-        <option name="httpUsername" />
-        <option name="ideModuleStorage">
-          <map>
-            <entry key="com.zeroturnaround.jrebel.FormatVersion" value="7.0.0" />
-            <entry key="com.zeroturnaround.jrebel.remoting.DeleteUnindexedFiles" value="false" />
-            <entry key="com.zeroturnaround.jrebel.remoting.ModuleRemoteServerSelection" value="off" />
-            <entry key="jrebelEnabled" value="false" />
-            <entry key="lastExternalPluginCheckTime" value="1534746537236" />
-            <entry key="rebelXmlGenerationType" value="ide" />
-          </map>
-        </option>
-        <option name="masterModuleName" />
-        <option name="overrideStandardXmlFolder" value="false" />
-        <option name="remotingEnabled" value="false" />
-        <option name="secure" value="true" />
-        <option name="url" />
-        <option name="xmlDir" />
-      </configuration>
+    <facet type="Spring" name="Spring">
+      <configuration />
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
@@ -53,9 +33,9 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-web:4.3.18.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.3.18.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.3.18.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-core:4.3.18.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:4.3.18.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:4.3.18.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-core:4.3.18.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: io.jsonwebtoken:jjwt:0.9.1" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.6" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.5" level="project" />

@@ -1,31 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+<module type="JAVA_MODULE" version="4">
+  <component name="ExternalSystem" externalSystem="Maven" />
   <component name="FacetManager">
-    <facet type="JRebel" name="JRebel">
-      <configuration>
-        <option name="deleteUnindexed" value="false" />
-        <option name="httpAuthEnabled" value="false" />
-        <option name="httpPassword" />
-        <option name="httpUsername" />
-        <option name="ideModuleStorage">
-          <map>
-            <entry key="com.zeroturnaround.jrebel.FormatVersion" value="7.0.0" />
-            <entry key="com.zeroturnaround.jrebel.remoting.DeleteUnindexedFiles" value="false" />
-            <entry key="com.zeroturnaround.jrebel.remoting.ModuleRemoteServerSelection" value="off" />
-            <entry key="jrebelEnabled" value="false" />
-            <entry key="rebelXmlGenerationType" value="ide" />
-          </map>
-        </option>
-        <option name="masterModuleName" />
-        <option name="overrideStandardXmlFolder" value="false" />
-        <option name="remotingEnabled" value="false" />
-        <option name="secure" value="true" />
-        <option name="url" />
-        <option name="xmlDir" />
-      </configuration>
+    <facet type="Spring" name="Spring">
+      <configuration />
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
@@ -50,11 +31,11 @@
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
     <orderEntry type="library" name="Maven: org.apache.activemq:activemq-jms-pool:5.15.4" level="project" />
     <orderEntry type="library" name="Maven: org.apache.geronimo.specs:geronimo-jms_1.1_spec:1.1.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.geronimo.specs:geronimo-jta_1.0.1B_spec:1.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.commons:commons-pool2:2.4.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.activemq:activemq-client:5.15.4" level="project" />
     <orderEntry type="library" name="Maven: org.fusesource.hawtbuf:hawtbuf:1.11" level="project" />
     <orderEntry type="library" name="Maven: org.apache.geronimo.specs:geronimo-j2ee-management_1.1_spec:1.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.geronimo.specs:geronimo-jta_1.0.1B_spec:1.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-pool2:2.4.2" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.45" level="project" />
     <orderEntry type="module" module-name="future-service-api" />
     <orderEntry type="library" name="Maven: junit:junit:4.12" level="project" />
