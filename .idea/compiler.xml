@@ -33,13 +33,13 @@
       <module name="future-backstage" target="1.8" />
       <module name="future-dao" target="1.8" />
       <module name="future-fastdfs" target="1.8" />
-      <module name="future-jbs" target="1.7" />
+      <module name="future-jbs" target="1.8" />
       <module name="future-model" target="1.8" />
       <module name="future-parent" target="1.8" />
       <module name="future-quartz" target="1.8" />
       <module name="future-service" target="1.8" />
-      <module name="future-service-api" target="1.7" />
-      <module name="future-solr" target="1.7" />
+      <module name="future-service-api" target="1.8" />
+      <module name="future-solr" target="1.8" />
       <module name="future-struts2" target="1.8" />
       <module name="future-study" target="1.8" />
       <module name="future-thread" target="1.8" />

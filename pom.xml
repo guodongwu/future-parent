@@ -37,7 +37,7 @@
         <mybatis-version>3.4.6</mybatis-version>
         <mysql-version>5.1.39</mysql-version>
         <!-- <mysql-version>8.0.12</mysql-version>-->
-        <generator.project.root>D:\git\future-parent</generator.project.root>
+        <generator.project.root>~/IdeaProjects/future-parent</generator.project.root>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -378,7 +378,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <pluginRepositories>
+   <!-- <pluginRepositories>
         <pluginRepository>
             <id>alfresco-public</id>
             <url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
@@ -395,41 +395,8 @@
             <id>beardedgeeks-releases</id>
             <url>http://beardedgeeks.googlecode.com/svn/repository/releases</url>
         </pluginRepository>
-    </pluginRepositories>
+    </pluginRepositories>-->
     <build>
-        <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
-            <plugins>
-                <plugin>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.0.0</version>
-                </plugin>
-                <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
-                <plugin>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.0.2</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.7.0</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.20.1</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.0.2</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-install-plugin</artifactId>
-                    <version>2.5.2</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>2.8.2</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
         <plugins>
             <!-- 打包jar文件时，配置manifest文件，加入lib包的jar依赖 -->
             <plugin>
@@ -473,12 +440,11 @@
                 </executions>
             </plugin>
 
-            <plugin>
+           <!--<plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat8-maven-plugin</artifactId>
                 <version>3.0-r1756463</version>
-            </plugin>
-
+            </plugin>-->
 
         </plugins>
     </build>
